@@ -1,8 +1,7 @@
-package com.vaishakh.inheriitance.lab;
+package com.vaishakh.com.lab.emp;
 
-import java.util.Scanner;
-public class engineer extends employee{
-    public engineer(int base_Sal, int TA, int DA) {
+public class empengineer extends emp{
+    public empengineer(int base_Sal, int TA, int DA) {
         super(base_Sal, TA, DA);
     }
 

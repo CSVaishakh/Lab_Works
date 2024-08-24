@@ -1,11 +1,11 @@
-package com.vaishakh.inheriitance.lab;
+package com.vaishakh.com.lab.emp;
 
-public class employee {
+public class emp{
     static  int Base_Sal;
     static int TA;
     static int DA;
 
-    public employee(int base_Sal, int TA, int DA) {
+    public emp(int base_Sal, int TA, int DA) {
         this.Base_Sal = base_Sal;
         this.TA = TA;
         this.DA = DA;
@@ -21,4 +21,3 @@ public class employee {
     }
 
 }
-

@@ -1,8 +1,8 @@
-package com.vaishakh.Basic;
+package com.vaishakh.com.lab.basic;
 
 import java.util.Scanner;
 
-public class charcount{
+public class charcnt{
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         System.out.println("Enter a string: ");
