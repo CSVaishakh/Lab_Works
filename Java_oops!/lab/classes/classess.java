@@ -1,4 +1,4 @@
-package com.vaishakh.com.lab.classes;
+package com.vaishakh.lab.classes;
 
 public class classess {
     //creating a class

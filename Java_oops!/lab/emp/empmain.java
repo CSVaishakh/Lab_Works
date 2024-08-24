@@ -1,4 +1,4 @@
-package com.vaishakh.com.lab.emp;
+package com.vaishakh.lab.emp;
 
 import java.util.Scanner;
 

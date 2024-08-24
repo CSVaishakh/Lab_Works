@@ -1,4 +1,4 @@
-package com.vaishakh.com.lab.emp;
+package com.vaishakh.lab.emp;
 
 public class empengineer extends emp{
     public empengineer(int base_Sal, int TA, int DA) {

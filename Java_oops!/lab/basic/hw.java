@@ -1,4 +1,4 @@
-package com.vaishakh.com.lab.basic;
+package com.vaishakh.lab.basic;
 
 public class hw {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.vaishakh.com.lab.emp;
+package com.vaishakh.lab.emp;
 
 public class emp{
     static  int Base_Sal;
