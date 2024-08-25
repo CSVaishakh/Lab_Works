@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include<math.h>
 #define MAX_SIZE 100
 typedef struct {
     char data[MAX_SIZE];
@@ -62,8 +63,8 @@ int evaluate(int a, int b, char op) {
         case '+': return a + b;
         case '-': return b - a;
         case '*': return a * b;
-        case '/': return b / a;
-        case '^': return pow(b, a);
+        case '/': return b/a;
+        case '^': return pow(a,b);
         default: return 0;
     }
 }

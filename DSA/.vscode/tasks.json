@@ -9,7 +9,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/out\\${fileBasenameNoExtension}.exe",
+                "${fileDirname}\\out\\${fileBasenameNoExtension}.exe",
                 ""
             ],
             "options": {
