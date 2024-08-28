@@ -9,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": false,
       "cwd": "/home/vaishakh/Development/Lab_Works/DSA",
-      "program": "/home/vaishakh/Development/Lab_Works/DSA/build/Debug/outDebug",
+      "program": "/home/vaishakh/Development/Lab_Works/DSA/out",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
