@@ -1,33 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
-#include <math.h>
-
-#define SIZE 100
-#define STACK_SIZE 100
-
-int top = -1;
-char stk[STACK_SIZE];
-char iexprsn[SIZE], pexprsn[SIZE];
-
-// Stack functions
-bool isFull() { return top == STACK_SIZE - 1; }
-bool isEmpty() { return top == -1; }
-void push(char item) {
-    if (isFull()) { fprintf(stderr, "Stack overflow\n"); exit(EXIT_FAILURE); }
-    stk[++top] = item;
+#include<math.h>
+#define MAX_SIZE 100
+typedef struct {
+    char data[MAX_SIZE];
+    int top;
+} Stack;
+void push(Stack *s, char item) {
+    if (s->top >= MAX_SIZE - 1) {
+        fprintf(stderr, "Stack overflow\n");
+        exit(1);
+    }
+    s->data[++s->top] = item;
 }
-char pop() {
-    if (isEmpty()) { fprintf(stderr, "Stack underflow\n"); exit(EXIT_FAILURE); }
-    return stk[top--];
+char pop(Stack *s) {
+    if (s->top == -1) {
+        fprintf(stderr, "Stack underflow\n");
+        exit(1);
+    }
+    return s->data[s->top--];
 }
-
-// Check if character is an operator
-bool isOperator(char ch) { return ch == '^' || ch == '*' || ch == '/' || ch == '+' || ch == '-'; }
-
-// Get precedence of an operator
 int precedence(char op) {
     switch (op) {
         case '^': return 3;
@@ -36,89 +30,76 @@ int precedence(char op) {
         default: return 0;
     }
 }
-
-// Convert infix expression to postfix expression
-void infixToPostfix(const char* infix, char* postfix) {
+void infixToPostfix(const char *infix, char *postfix) {
+    Stack stack = {.top = -1};
     int j = 0;
-    push('('); 
-    strcat(iexprsn, ")");
-    for (int i = 0; iexprsn[i] != '\0'; i++) {
-        char ch = iexprsn[i];
-        if (isspace(ch)) continue;
+    for (int i = 0; infix[i]; i++) {
+        char ch = infix[i];
         if (isalnum(ch)) {
             postfix[j++] = ch;
         } else if (ch == '(') {
-            push(ch);
+            push(&stack, ch);
         } else if (ch == ')') {
-            while (!isEmpty() && stk[top] != '(') postfix[j++] = pop();
-            if (!isEmpty()) pop();  // pop the '('
-        } else if (isOperator(ch)) {
-            while (!isEmpty() && isOperator(stk[top]) && precedence(stk[top]) >= precedence(ch)) {
-                postfix[j++] = pop();
+            while (stack.top != -1 && stack.data[stack.top] != '(') {
+                postfix[j++] = pop(&stack);
             }
-            push(ch);
-        } else {
-            fprintf(stderr, "Invalid character '%c'\n", ch);
-            exit(EXIT_FAILURE);
+            if (stack.top != -1 && stack.data[stack.top] == '(') {
+                pop(&stack);
+            }
+        } else if (strchr("+-*/^", ch)) {
+            while (stack.top != -1 && precedence(stack.data[stack.top]) >= precedence(ch)) {
+                postfix[j++] = pop(&stack);
+            }
+            push(&stack, ch);
         }
+    }
+    while (stack.top != -1) {
+        postfix[j++] = pop(&stack);
     }
     postfix[j] = '\0';
 }
+int evaluate(int a, int b, char op) {
+    switch (op) {
+        case '+': return a + b;
+        case '-': return b - a;
+        case '*': return a * b;
+        case '/': return b/a;
+        case '^': return pow(a,b);
+        default: return 0;
+    }
+}
+int evaluatePostfix(const char *postfix) {
+    Stack stack = {.top = -1};
+    int value;
 
-// Evaluate postfix expression
-void evaluatePostfix(const char* postfix) {
-    int stack[STACK_SIZE], stackTop = -1;
-    for (int i = 0; postfix[i] != '\0'; i++) {
-        char ch = postfix[i];
-        if (isdigit(ch)) {
-            stack[++stackTop] = ch - '0';
-        } else if (isalpha(ch)) {
-            // For variables, you can either prompt for values or use a predefined set of values
-            int value;
-            printf("Enter value for variable '%c': ", ch);
-            if (scanf("%d", &value) != 1) {
-                fprintf(stderr, "Invalid input\n");
-                exit(EXIT_FAILURE);
+    for (int i = 0; postfix[i]; i++) {
+        if (isalnum(postfix[i])) {
+            if (isalpha(postfix[i])) {
+                printf("Enter value for %c: ", postfix[i]);
+                scanf("%d", &value);
+            } else {
+                value = postfix[i] - '0';
             }
-            stack[++stackTop] = value;
-        } else if (isOperator(ch)) {
-            if (stackTop < 1) {
-                fprintf(stderr, "Invalid postfix expression\n");
-                exit(EXIT_FAILURE);
-            }
-            int num2 = stack[stackTop--];
-            int num1 = stack[stackTop--];
-            switch (ch) {
-                case '+': stack[++stackTop] = num1 + num2; break;
-                case '-': stack[++stackTop] = num1 - num2; break;
-                case '*': stack[++stackTop] = num1 * num2; break;
-                case '/': 
-                    if (num2 == 0) {
-                        fprintf(stderr, "Division by zero\n");
-                        exit(EXIT_FAILURE);
-                    }
-                    stack[++stackTop] = num1 / num2; 
-                    break;
-                case '^': stack[++stackTop] = (int)pow(num1, num2); break;
-            }
+            push(&stack, value);
         } else {
-            fprintf(stderr, "Invalid character '%c' in postfix expression\n", ch);
-            exit(EXIT_FAILURE);
+            int a = pop(&stack);
+            int b = pop(&stack);
+            push(&stack, evaluate(a, b, postfix[i]));
         }
     }
-    if (stackTop != 0) {
-        fprintf(stderr, "Invalid postfix expression\n");
-        exit(EXIT_FAILURE);
-    }
-    printf("Result: %d\n", stack[stackTop]);
+    return pop(&stack);
 }
-
 int main() {
-    printf("Enter infix expression: ");
-    fgets(iexprsn, SIZE, stdin);
-    iexprsn[strcspn(iexprsn, "\n")] = '\0';
-    infixToPostfix(iexprsn, pexprsn);
-    printf("Postfix Expression: %s\n", pexprsn);
-    evaluatePostfix(pexprsn);
+    char infix[MAX_SIZE], postfix[MAX_SIZE];
+    printf("Enter Infix expression: ");
+    if (fgets(infix, sizeof(infix), stdin) == NULL) {
+        fprintf(stderr, "Error reading input\n");
+        return 1;
+    }
+    infix[strcspn(infix, "\n")] = 0; // Remove newline if present
+    infixToPostfix(infix, postfix);
+    printf("Postfix Expression: %s\n", postfix);
+    int result = evaluatePostfix(postfix);
+    printf("Result: %d\n", result);
     return 0;
 }
