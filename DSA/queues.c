@@ -61,39 +61,38 @@ void display(){
 
 // main function 
 int main(){
-    int ch,Max_Size;
-    printf("Enter the size of the queue");
-    scanf("%d",&Max_Size);
-    while(true){
-        printf("\n*****Queues*****\n");
-        printf("1.Enqueue\n2.Dequeue\n3.Display\n4.Is the queue full\n5.Is the queue empty\n6.Exit\n");
-        printf("Enter your choice : ");
-        scanf("%d",&ch);
-        printf("\n"); 
-        switch(ch){
-        	case 1:
-                enqueue(Max_Size);
-                break;
-        	case 2:
-            	dequeue();
-   				break;
-        	case 3:
-            	display();
-            	break;
-        	case 4:
-            	isFull(Max_Size);
+	int ch,Max_Size;
+		printf("Enter the size of the queue");
+		scanf("%d",&Max_Size);
+		while(true){
+			printf("\n*****Queues*****\n");
+			printf("1.Enqueue\n2.Dequeue\n3.Display\n4.Is the queue full\n5.Is the queue empty\n6.Exit\n");
+			printf("Enter your choice : ");
+			scanf("%d",&ch);
+			printf("\n"); 
+			switch(ch){
+				case 1:
+					enqueue(Max_Size);
+					break;
+				case 2:
+					dequeue();
+					break;
+				case 3:
+					display();
+					break;
+				case 4:
+					isFull(Max_Size);
+					break;
+				case 5:        	
+					isEmpty();
+					break;
+			}
+			if(ch==6){
+				printf("Exiting\n");
 				break;
-			case 5:        	
-        		isEmpty();
-        		break;
-        }
-        if(ch==6){
-            printf("Exiting\n");
-        	break;
-        }else if(ch>6){
-        	printf("Invalid choice\n");
-        }
-    }
-    return 0;
+			}else if(ch>6){
+				printf("Invalid choice\n");
+			}
+		}
+	return 0;
 }
-
