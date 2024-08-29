@@ -81,10 +81,20 @@ int main(){
 					display();
 					break;
 				case 4:
-					isFull(Max_Size);
+					if(isFull(Max_Size)==true){
+						printf("Queue is full");
+					}
+					else{
+						printf("Queue is not full");
+					}
 					break;
 				case 5:        	
-					isEmpty();
+					if(isEmpty()==true){
+						printf("Queue is empty");
+					}
+					else{
+						printf("Queue is not empty");
+					}
 					break;
 			}
 			if(ch==6){
