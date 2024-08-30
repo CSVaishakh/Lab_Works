@@ -33,4 +33,8 @@ void main(){
         printf(" %d ",a[i]);
         time+=2;
     }
+    printf("\nSpace complexity is %d\n",space);
+    time+=2;
+    printf("\nTime complexity is %d\n",time);
+
 }
