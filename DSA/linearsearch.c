@@ -1,4 +1,4 @@
-	#include<stdio.h>
+#include<stdio.h>
 
 int time;
 int space;
@@ -16,6 +16,7 @@ int linear_search(int n,int arr[],int key){
     }
     return 0;
 }
+
 void main(){
     int n,i,key;
     space +=3*4;
