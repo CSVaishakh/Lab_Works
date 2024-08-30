@@ -1,12 +1,17 @@
 #include<stdio.h>
-int main(){
-    int n,i,j,temp,min;
+void main(){
+    int n,i,j,temp,min,space=0,time=0;
+    space+=7*4;
     printf("Enter the no.of elements in the lsit to be sorted");
     scanf("%d",&n);
+    time+=2;
     int a[n];
+    space+=n*4;
     printf("Enter the elements of the list\n");
+    time++;
     for(i=0;i<n;i++){
         scanf("%d",&a[i]);
+        time+=2;
     }
     for(i=0;i<n-1;i++){
         min = i;
@@ -16,11 +21,16 @@ int main(){
                 temp=a[j+1];
                 a[j+1]=a[j];
                 a[j]=temp;
+                time+=4;
             }
+            time+=2;
         }
+        time+=2;
     }
     printf("The sorted array is");
+    time++;
     for(i=0;i<n;i++){
         printf(" %d ",a[i]);
+        time+=2;
     }
 }
