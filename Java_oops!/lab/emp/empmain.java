@@ -13,7 +13,6 @@ public class empmain {
         System.out.println("Enter the DA: ");
         DA = sc.nextInt();
         empengineer engineer1 = new empengineer(base_Sal, TA, DA);
-
         engineer1.calc_salary();
         engineer1.display();
     }
