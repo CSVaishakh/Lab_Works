@@ -1,5 +1,5 @@
 #include <stdio.h>
-int space=0,time=0;
+int space,time=0;
 space=2*4;
 
 int binarysearch(int n, int a[], int key){
