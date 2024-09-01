@@ -1,6 +1,6 @@
 #include <stdio.h>
-int space,time=0;
-space=2*4;
+int time=0;
+int space=2*4;
 
 int binarysearch(int n, int a[], int key){
     int left = 0, right = n - 1;
