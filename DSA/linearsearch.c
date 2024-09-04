@@ -1,8 +1,7 @@
 #include<stdio.h>
 
 int time;
-int space;
-space = 2*4;
+int space = 2*4;
 
 int linear_search(int n,int arr[],int key){
     int i;
