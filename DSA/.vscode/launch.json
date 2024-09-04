@@ -1,6 +1,6 @@
 {
-  "version": "0.2.0",
   "configurations": [
+
     {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
@@ -8,9 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/vaishakh/Development/Lab_Works/DSA",
-      "program": "/home/vaishakh/Development/Lab_Works/DSA",
-      "MIMode": "gdb",
+      "cwd": "/home/vaishakh/Code/Lab_Works/DSA",
+      "program": "/home/vaishakh/Code/Lab_Works/DSA"
       "miDebuggerPath": "gdb",
       "setupCommands": [
         {
