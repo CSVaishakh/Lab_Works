@@ -6,7 +6,7 @@
 #include <math.h>
 
 #define SIZE 100
-#define STACK_SIZE 100
+#define STACK_SIZE 30
 
 int top = -1;
 char stk[STACK_SIZE];
