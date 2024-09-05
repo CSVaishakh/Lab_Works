@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
-
 #define size 100
 int queue[size],front = -1,rear = -1;
 // function to check if the queue is full
@@ -58,7 +57,6 @@ void display(){
         }
     }
 }
-
 // main function 
 int main(){
 	int ch,Max_Size;
