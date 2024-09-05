@@ -4,12 +4,12 @@
 #include <string.h>
 #include <ctype.h>
 #include <math.h>
-#define SIZE 100
-#define STACK_SIZE 30
+#define Size 100
+#define Stack_Size 30
 int top = -1;
-char stk[STACK_SIZE];
-char iexprsn[SIZE], pexprsn[SIZE];
-bool isFull() { return top == STACK_SIZE - 1; }
+char stk[Stack_Size];
+char iexprsn[Size], pexprsn[Size];
+bool isFull() { return top == Stack_Size - 1; }
 bool isEmpty() { return top == -1; }
 void push(char item) {
     if (isFull()) { 
@@ -61,7 +61,7 @@ void infixToPostfix(const char* infix, char* postfix) {
     postfix[j] = '\0';
 }
 void evaluatePostfix(const char* postfix) {
-    int stack[STACK_SIZE], stackTop = -1;
+    int stack[Stack_Size], stackTop = -1;
     for (int i = 0; postfix[i] != '\0'; i++) {
         char ch = postfix[i];
         if (isdigit(ch)) {
@@ -110,7 +110,7 @@ void evaluatePostfix(const char* postfix) {
 }
 int main() {
     printf("Enter infix expression: ");
-    fgets(iexprsn, SIZE, stdin);
+    fgets(iexprsn, Size, stdin);
     iexprsn[strcspn(iexprsn, "\n")] = '\0';
     infixToPostfix(iexprsn, pexprsn);
     printf("Postfix Expression: %s\n", pexprsn);
