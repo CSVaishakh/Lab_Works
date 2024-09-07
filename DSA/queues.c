@@ -79,7 +79,7 @@ int main(){
 					display();
 					break;
 				case 4:
-					if(isFull(Max_Size)==true){
+					if(isFull(Max_Size)){
 						printf("Queue is full");
 					}
 					else{
@@ -87,7 +87,7 @@ int main(){
 					}
 					break;
 				case 5:        	
-					if(isEmpty()==true){
+					if(isEmpty()){
 						printf("Queue is empty");
 					}
 					else{

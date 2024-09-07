@@ -9,7 +9,6 @@ public class mat_multiplication{
 
         System.out.println("Enter the no.of rows in the  first matrix");
         row1 = in.nextInt();
-        in.nextLine();
 
         System.out.println("Enter the no.of coloumns in the first matrix");
         col1 = in.nextInt();
@@ -33,13 +32,6 @@ public class mat_multiplication{
                     mat1[i][j]=in.nextInt();
                 }
             }
-            System.out.println("The first matrix is");
-            for(i=0;i<row1;i++){
-                System.out.println();
-                for(j=0;j<col1;j++){
-                    System.out.print(" "+mat1[i][j]+" ");
-                }
-            }
 
             System.out.println();
 
@@ -50,13 +42,6 @@ public class mat_multiplication{
                 }
             }
 
-            System.out.println("The second matrix is");
-            for(i=0;i<row2;i++){
-                System.out.println();
-                for(j=0;j<col2;j++){
-                    System.out.print(" "+mat2[i][j]+" ");
-                }
-            }
             System.out.println();
 
             int[][] mat3 = new int[row1][col2];
@@ -78,7 +63,5 @@ public class mat_multiplication{
             }
             System.out.println();
         }
-
-
     }
 }

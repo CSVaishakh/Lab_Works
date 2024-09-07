@@ -18,15 +18,14 @@ void main(){
         for(j=0;j<n-1;j++){
             if(a[j]>a[j+1]){
                 min = j;
-                temp=a[j+1];
-                a[j+1]=a[j];
-                a[j]=temp;
-                time+=4;
+                time+=2;
             }
-            time+=2;
         }
-        time+=2;
-    }
+        temp=a[j+1];
+        a[j+1]=a[j];
+        a[j]=temp;
+        time+=4;
+       
     printf("The sorted array is");
     time++;
     for(i=0;i<n;i++){
