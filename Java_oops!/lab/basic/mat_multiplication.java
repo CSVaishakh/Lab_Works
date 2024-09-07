@@ -13,15 +13,12 @@ public class mat_multiplication{
 
         System.out.println("Enter the no.of coloumns in the first matrix");
         col1 = in.nextInt();
-        in.nextLine();
 
         System.out.println("Enter the no.of rows in the  second matrix");
         row2 = in.nextInt();
-        in.nextLine();
 
         System.out.println("Enter the no.of coloumns in the second matrix");
         col2 = in.nextInt();
-        in.nextLine();
 
         if (col1 != row2){
             System.out.println("Matrix multiplication is not possible as no of rows of first matrix is not equal to no of coloumns of second matrix ");

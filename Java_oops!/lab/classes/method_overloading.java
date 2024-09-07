@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class method_overloading {
     public static class methods{
         int clacarea(int l, int b){
-            int area = l*b;
-            return area;
+            return l*b;
         }
         void calcarea(float r){
             System.out.println("Area of the circle of radius "+r+" is "+3.14*r*r);
@@ -30,8 +29,7 @@ public class method_overloading {
         int l = sc.nextInt();
         System.out.println("Enter the breadth of the rectangle");
         int  b = sc.nextInt();
-        int a = obj.clacarea(l,b);
-        System.out.println("Area of the rectangle with length "+l+" and breadth "+b+" is "+a);
+        System.out.println("Area of the rectangle with length "+l+" and breadth "+b+" is "+obj.clacarea(l,b));
         obj.calcarea(r);
         obj.calcarea(base,height);
         sc.close();
