@@ -8,10 +8,10 @@ public class method_overloading {
             return l*b;
         }
         void calcarea(float r){
-            System.out.println("Area of the circle of radius "+r+" is "+3.14*r*r);
+            System.out.println(3.14*r*r);
         }
         void calcarea(float b,float h){
-            System.out.println("Area of the triangle of base "+b+" and height "+h+" is "+(b*h)/2);
+            System.out.println((b*h)/2);
         }
     }
     public static void main(String[] args) {
@@ -29,7 +29,7 @@ public class method_overloading {
         int l = sc.nextInt();
         System.out.println("Enter the breadth of the rectangle");
         int  b = sc.nextInt();
-        System.out.println("Area of the rectangle with length "+l+" and breadth "+b+" is "+obj.clacarea(l,b));
+        System.out.println(obj.clacarea(l,b));
         obj.calcarea(r);
         obj.calcarea(base,height);
         sc.close();
