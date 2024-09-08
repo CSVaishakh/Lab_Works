@@ -1,14 +1,10 @@
 #include<stdio.h>
-
-int time;
-int space = 2*4;
-
 void main(){
-    int n,i,key,found=0;
+    int n,i,key,found=0, time=0, space=0;
     space +=4*4;
     printf("Enter the no of elements in the list ");
     scanf("%d",&n);
-    time=+3;
+    time+=2;
     int arr[n];
     space+=n*4;
     printf("Enter the elements of the list\n");
@@ -24,13 +20,15 @@ void main(){
         if(key == arr[i]){
             printf("Element is found at the position %d",(i+1));
             found = 1;
-            time+=2;
+            time+=4;
+            break;
         }
+        time++;
     }
     if(!found){
         printf("Element not found");
         time+=2;
-    }
+    }time++;
     printf("\nSpace Complexity : %d\n",space);
     time+=2;
     printf("Time Complexity : %d\n",time); 
