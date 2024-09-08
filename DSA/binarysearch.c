@@ -1,7 +1,7 @@
 #include <stdio.h>
 void main() {
-    int n, i, key, left, right, mid, time=0, space=0, flag;
-    space += 6*4;
+    int n, i, key, left, right, mid, time=0, space=0;
+    space += 8*4;
     printf("Enter the no. of elements in the list: ");
     scanf("%d", &n);
     time+=2;
@@ -9,7 +9,8 @@ void main() {
     space += n*4;
     printf("Enter the elements of the sorted list:\n");
     time++;
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++){
+        printf("Element %d : ",i+1);
         scanf("%d", &arr[i]);
         time+=2;
     }
