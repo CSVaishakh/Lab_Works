@@ -1,42 +1,41 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
-#define size 100
+#define Max_Size 5
 int queue[size],front = -1,rear = -1;
 // function to check if the queue is full
-bool isFull(int Max_Size){
+void isFull(){
     if(rear == Max_Size-1){
-        return true;
-    }
-    return false;
+        printf("Queue is full");
+    }else{
+		printf("Queue is not full");
+	}
+    
 }
 // function to check if the queue is empty
-bool isEmpty(){
+void isEmpty(){
     if(front == -1 && rear == -1){
-        return true;
-    }
-    return false;
+        printf("Queue is empty");
+    }else{
+		printf("Queue is not empty")
+	}
 }
 // function to add an element to the queue
-void enqueue(int Max_Size){
+void enqueue(int item){
     int val;
-    if(isFull(Max_Size)==true){
+    if(rear == Max_Size-1){
         printf("Queue is full");
     }else if(front==-1 && rear==-1){
         front = rear = 0;
-        printf("Enter the value to be added to the queue");
-        scanf("%d",&val);
-        queue[rear] = val;
+        queue[rear] = item;
     }else{
         rear++;
-        printf("Enter the value to be added to the queue");
-        scanf("%d",&val);
-        queue[rear]=val;
+        queue[rear]=item;
     }
 }
 // function to dequeue an element from the queue
 void dequeue(){
-    if(isEmpty()==true){
+    if(rear == -1){
         printf("Queue is empty");
     }else{
         printf("Element removed from the queue is %d",queue[front]);
@@ -49,7 +48,7 @@ void dequeue(){
 }
 // function to print the queue
 void display(){
-    if(isEmpty()==true){
+    if(rear == -1){
         printf("Queue is empty");
     }else{
         for(int i=front;i<=rear;i++){
@@ -58,49 +57,38 @@ void display(){
     }
 }
 // main function 
-int main(){
-	int ch,Max_Size;
-		printf("Enter the size of the queue");
-		scanf("%d",&Max_Size);
-		while(true){
-			printf("\n*****Queues*****\n");
-			printf("1.Enqueue\n2.Dequeue\n3.Display\n4.Is the queue full\n5.Is the queue empty\n6.Exit\n");
-			printf("Enter your choice : ");
-			scanf("%d",&ch);
-			printf("\n"); 
-			switch(ch){
-				case 1:
-					enqueue(Max_Size);
-					break;
-				case 2:
-					dequeue();
-					break;
-				case 3:
-					display();
-					break;
-				case 4:
-					if(isFull(Max_Size)){
-						printf("Queue is full");
-					}
-					else{
-						printf("Queue is not full");
-					}
-					break;
-				case 5:        	
-					if(isEmpty()){
-						printf("Queue is empty");
-					}
-					else{
-						printf("Queue is not empty");
-					}
-					break;
-			}
-			if(ch==6){
-				printf("Exiting\n");
+void main(){
+	int ch,item;
+	while(true){
+		printf("\n*****Queues*****\n");
+		printf("1.Insertion\n2.Deletion\n3.Display\n4.Is the queue full\n5.Is the queue empty\n6.Exit\n");
+		printf("Enter your choice : ");
+		scanf("%d",&ch);
+		printf("\n"); 
+		switch(ch){
+			case 1:
+				printf("Enter the item to be inserted");
+				scanf("%d",&item);
+				enqueue(item);
 				break;
-			}else if(ch>6){
-				printf("Invalid choice\n");
-			}
+			case 2:
+				dequeue();
+				break;
+			case 3:
+				display();
+				break;
+			case 4:
+				isFull();
+				break;
+			case 5:        	
+				isEmpty()
+				break;
 		}
-	return 0;
+		if(ch==6){
+			printf("Exiting\n");
+			break;
+		}else if(ch>6){
+			printf("Invalid choice\n");
+		}
+	}
 }
