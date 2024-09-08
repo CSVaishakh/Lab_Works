@@ -1,7 +1,9 @@
+//a program to implemet binary search and also print its time and space complexity
 #include <stdio.h>
+//main function
 void main() {
     int n, i, key, left, right, mid, time=0, space=0;
-    space += 8*4;
+    space += 8*4;//incrementing the space by "no of variables" * size of an integer in bytes;'
     printf("Enter the no. of elements in the list: ");
     scanf("%d", &n);
     time+=2;
