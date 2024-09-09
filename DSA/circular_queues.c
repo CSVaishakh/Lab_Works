@@ -1,15 +1,29 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 #define Max_Size 5
 int queue[Max_Size];
 int front =-1, rear = -1;
+bool isFull(){
+    if((rear+1)%Max_Size==front){
+        return true;
+    }
+	return false;
+}
+// function to check if the queue is empty
+bool isEmpty(){
+    if(front == -1 && rear == -1){
+        return true;
+    }
+    return false;
+}
 
 void enqueue(item){
-    if(rear==-1&&front==-1){
+    if(isEmpty()){
         front = rear = 0;
         queue[rear]=item;
     
-    }else if((rear+1)%Max_Size==front){
+    }else if(isFull()){
         printf("Queue is full, OVERFLOW");
     }else{
         rear = (rear+1)%Max_Size;
@@ -18,10 +32,10 @@ void enqueue(item){
 }
 
 void dequeue(){
-    if (rear == -1){
+    if (isEmpty()){
         printf("Queue is empty, UNDERFLOW");
     }else if(front == rear){
-        printf("The item removed from the queue is %D",queue[front]);
+        printf("The item removed from the queue is %d",queue[front]);
         front = rear = -1;
     }else{
         printf("The item removed from the queue is %d",queue[front]);
@@ -41,48 +55,32 @@ void display(){
     }
 }
 
-void isEmpty(){
-    if(rear == -1){
-        printf("Queue is Empty");
-    }else{
-        printf("Queue is not empty");
-    }
-}
-
-void isFull(){
-    if ((rear+1)%Max_Size == front){
-        printf("Queue is Full");
-    }else{
-        printf("Queue is not full");
-    }
-}
-
 int main(){
-    int choice,item;
-    while(1){
-        printf("****Circular-Queues*****");
-        printf("\n1.Enqueue\n2.Dequeue\n3.Display\n4.isEmpty\n5.isFull\n");
-        printf("Enter your choice");
-        scanf("%d",&choice);
-        switch(choice){
-            case 1:
-                printf("Enter the item to enqueue: \n");
-                scanf("%d",&item);
-                enqueue(item);
-            case 2:
-                dequeue();
-                break;
-            case 3:
-                display();
-                break;
-            case 4:
-                isEmpty();
-                break;
-            case 5:
-                isEmpty();
-                break;
-            default:
-                printf("Invalid choice.\n");
-        }
-    }
+    int ch,item;
+	while(true){
+		printf("\n*****Queues*****\n");
+		printf("1.Enqueue\n2.Dequeue\n3.Display\n4.Exit\n");
+		printf("Enter your choice : ");
+		scanf("%d",&ch);
+		printf("\n"); 
+		switch(ch){
+			case 1:
+				printf("Enter the item to be enqueued : ");
+				scanf("%d",&item);
+				enqueue(item);
+				break;
+			case 2:
+				dequeue();
+				break;
+			case 3:
+				display();
+				break;
+		}
+		if(ch==4){
+			printf("Exiting\n");
+			break;
+		}else if(ch>4){
+			printf("Invalid choice\n");
+		}
+	}
 }
