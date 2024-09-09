@@ -40,6 +40,7 @@ void display(){
         printf("\n");
     }
 }
+
 void isEmpty(){
     if(rear == -1){
         printf("Queue is Empty");
@@ -60,11 +61,12 @@ int main(){
     int choice,item;
     while(1){
         printf("****Circular-Queues*****");
-        printf("Enter your choice:\n1.Enqueue\n2.Dequeue\n3.Display\n4.isEmpty\n5.isFull\n");
+        printf("\n1.Enqueue\n2.Dequeue\n3.Display\n4.isEmpty\n5.isFull\n");
+        printf("Enter your choice");
         scanf("%d",&choice);
         switch(choice){
             case 1:
-                printf("Enter the item to enqueue:\n");
+                printf("Enter the item to enqueue: \n");
                 scanf("%d",&item);
                 enqueue(item);
             case 2:
