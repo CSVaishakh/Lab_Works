@@ -5,7 +5,7 @@ void main(){
     printf("Enter the no.of elements in the list to be sorted");
     scanf("%d",&n);
     time+=2;
-    int a[100];
+    int a[n];
     space+=n*4;
     printf("Enter the elements of the list\n");
     time++;
@@ -13,18 +13,17 @@ void main(){
         scanf("%d",&a[i]);
         time+=2;
     }
-    time+=2;
     for(i=0;i<n;i++){
         for(j=0;j<n-1;j++){
             if(a[j]>a[j+1]){
                 temp=a[j+1];
                 a[j+1]=a[j];
                 a[j]=temp;
-                time+=3;
+                time+=4;
             }
-            time+=2;
+            time++;
         }
-        time+=1;
+        time++;
     }
     printf("The sorted list is:");
     time++;
