@@ -2,11 +2,11 @@
 #include<stdlib.h>
 #define Max_Size 5
 int queue[Max_Size];
-int front = rear = -1;
+int front =-1, rear = -1;
 
 void enqueue(item){
     if(rear==-1&&front==-1){
-        fornt = rear = 0;
+        front = rear = 0;
         queue[rear]=item;
     
     }else if((rear+1)%Max_Size==front){
@@ -21,10 +21,10 @@ void dequeue(){
     if (rear == -1){
         printf("Queue is empty, UNDERFLOW");
     }else if(front == rear){
-        printf("The item removed from the queue is",queue[front]);
+        printf("The item removed from the queue is %D",queue[front]);
         front = rear = -1;
     }else{
-        printf("The item removed from the queue is",queue[front]);
+        printf("The item removed from the queue is %d",queue[front]);
         front = (rear+1)%Max_Size ;
     }
 }
@@ -59,7 +59,7 @@ void isFull(){
 int main(){
     int choice,item;
     while(1){
-        printf("****Circular-Queues*****")
+        printf("****Circular-Queues*****");
         printf("Enter your choice:\n1.Enqueue\n2.Dequeue\n3.Display\n4.isEmpty\n5.isFull\n");
         scanf("%d",&choice);
         switch(choice){
