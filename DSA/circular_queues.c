@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
-#define Max_Size 5
+#define Max_Size 3
 int queue[Max_Size];
 int front =-1, rear = -1;
 bool isFull(){
@@ -18,13 +18,13 @@ bool isEmpty(){
     return false;
 }
 
-void enqueue(item){
-    if(isEmpty()){
+void enqueue(int item){
+    if(isFull()){
+        printf("Queue is full, OVERFLOW");
+    }else if(isEmpty()){
         front = rear = 0;
         queue[rear]=item;
     
-    }else if(isFull()){
-        printf("Queue is full, OVERFLOW");
     }else{
         rear = (rear+1)%Max_Size;
         queue[rear] = item;
@@ -39,22 +39,24 @@ void dequeue(){
         front = rear = -1;
     }else{
         printf("The item removed from the queue is %d",queue[front]);
-        front = (rear+1)%Max_Size ;
+        front = (front+1)%Max_Size ;
     }
 }
 
-void display(){
-    if(rear == -1){
-        printf("Queue is empty");
-    }else {
+void display() {
+    if (isEmpty()) {
+        printf("Queue is empty\n");
+    } else {
         printf("Elements in the queue: ");
-        for(int i=front; i!=(rear+1)%Max_Size;i=(i+1)%Max_Size){
+        int i = front;
+        while (true) {
             printf("%d ", queue[i]);
+            if (i == rear) break; // Stop when we reach the rear element
+            i = (i + 1) % Max_Size; // Move to the next index in circular manner
         }
         printf("\n");
     }
 }
-
 int main(){
     int ch,item;
 	while(true){
