@@ -15,16 +15,17 @@ void main(){
     }
     for(i=0;i<n-1;i++){
         min = i;
-        for(j=0;j<n-1;j++){
-            if(a[j]>a[j+1]){
+        for(j=i+1;j<n;j++){
+            if(a[j]<a[min]){
                 min = j;
                 time+=2;
             }
         }
-        temp=a[j+1];
-        a[j+1]=a[j];
-        a[j]=temp;
+        temp=a[min];
+        a[min]=a[i];
+        a[i]=temp;
         time+=4;
+    }
        
     printf("The sorted array is");
     time++;
@@ -35,5 +36,4 @@ void main(){
     printf("\nSpace complexity is %d\n",space);
     time+=2;
     printf("\nTime complexity is %d\n",time);
-
 }
