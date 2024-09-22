@@ -27,7 +27,7 @@ public class method_overloading {
         float r = sc.nextFloat();
         System.out.println("Area of the rectangle is "+obj.calc_area(l,b));
         obj.calc_area(base,height);
-        System.out.println("Area of the circle is"+obj.calc_area(r));
+        System.out.println("Area of the circle is "+obj.calc_area(r));
         sc.close();
     }
 }
