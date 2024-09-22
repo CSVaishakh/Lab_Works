@@ -4,34 +4,30 @@ import java.util.Scanner;
 
 public class method_overloading {
     public static class methods{
-        int clacarea(int l, int b){
+        int calc_area(int l, int b){
             return l*b;
         }
-        void calcarea(float r){
-            System.out.println(3.14*r*r);
+        double calc_area(float r){
+            return 3.14*r*r;
         }
-        void calcarea(float b,float h){
-            System.out.println((b*h)/2);
+        void calc_area(float b,float h){
+            System.out.println("Area of the triangle is "+(b*h)/2);
         }
     }
     public static void main(String[] args) {
         methods obj = new methods();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the base of the triangle");
+        System.out.println("Enter the length and breadth of the rectangle");
+        int l = sc.nextInt();
+        int  b = sc.nextInt();
+        System.out.println("Enter the height and base of the triangle");
         float base = sc.nextFloat();
-        System.out.println("Enter the height of the triangle");
         float height = sc.nextFloat();
-
         System.out.println("Enter the radius of the circle");
         float r = sc.nextFloat();
-
-        System.out.println("Enter the length of the rectangle");
-        int l = sc.nextInt();
-        System.out.println("Enter the breadth of the rectangle");
-        int  b = sc.nextInt();
-        System.out.println(obj.clacarea(l,b));
-        obj.calcarea(r);
-        obj.calcarea(base,height);
+        System.out.println("Area of the rectangle is "+obj.calc_area(l,b));
+        obj.calc_area(base,height);
+        System.out.println("Area of the circle is"+obj.calc_area(r));
         sc.close();
     }
 }
