@@ -4,10 +4,10 @@ public class employe {
     static String name = "";
     static int age = 0;
     static int emp_id = 0;
-    static int ph_no = 0;
+    static long ph_no = 0;
     static String address = "";
 
-    public employe(String name,int age,int emp_id,int ph_no,String address){
+    public employe(String name,int age,int emp_id,long ph_no,String address){
         this.name = name;
         this.age = age;
         this.emp_id = emp_id;
