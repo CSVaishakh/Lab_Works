@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7991161c-26fa-4c94-bbe8-bf8e738ad8e7" name="Changes" comment="commit and push">
-      <change afterPath="$PROJECT_DIR$/lab/emp_dat/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab/emp_dat/employe.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/emp_dat/employe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab/emp_dat/manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/emp_dat/manager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab/Abstract/Abstract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab/Abstract/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab/classes/abstract_class.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,12 +17,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectColorInfo">{
@@ -68,7 +69,8 @@
       <workItem from="1726740708839" duration="846000" />
       <workItem from="1726981645282" duration="1775000" />
       <workItem from="1726983430824" duration="326000" />
-      <workItem from="1726983806216" duration="989000" />
+      <workItem from="1726983806216" duration="4248000" />
+      <workItem from="1727050618234" duration="1606000" />
     </task>
     <task id="LOCAL-00001" summary="commit and push">
       <option name="closed" value="true" />
@@ -102,7 +104,55 @@
       <option name="project" value="LOCAL" />
       <updated>1726983739486</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1726985335328</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726985335328</updated>
+    </task>
+    <task id="LOCAL-00006" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1726985350313</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726985350313</updated>
+    </task>
+    <task id="LOCAL-00007" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1726988959514</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726988959514</updated>
+    </task>
+    <task id="LOCAL-00008" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1726988974815</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726988974815</updated>
+    </task>
+    <task id="LOCAL-00009" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1726989604054</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726989604054</updated>
+    </task>
+    <task id="LOCAL-00010" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1726989619810</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1726989619810</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
