@@ -19,7 +19,6 @@ bool isEmpty(){
 }
 // function to add an element to the queue
 void enqueue(int item){
-    int val;
     if(isFull()){
         printf("Queue is full");
     }else if(isEmpty()){
