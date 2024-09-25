@@ -60,7 +60,6 @@ void main(){
 		printf("1.Enqueue\n2.Dequeue\n3.Display\n4.Exit\n");
 		printf("Enter your choice : ");
 		scanf("%d",&ch);
-		printf("\n"); 
 		switch(ch){
 			case 1:
 				printf("Enter the item to be enqueued : ");
