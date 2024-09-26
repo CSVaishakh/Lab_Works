@@ -11,16 +11,14 @@ int main(){
             scanf("%d",&sp[i][j]);
         }
     }
-
     printf("\nthe Sparse Matrix entered is:");
-    printf("Rows Coloumns Values");
+    
     for(i=0;i<r;i++){
         printf("\n");
         for (j=0;j<c;j++){
             printf(" %3d ",sp[i][j]);
         }
     }
-
     for(i=0;i<r;i++){
         for (j=0;j<c;j++){
             if(sp[i][j]!=0){
@@ -34,9 +32,8 @@ int main(){
     tr[0][0]=r;
     tr[0][1]=c;
     tr[0][2]=k-1;
-
-    
     printf("\nTripplet representation is\n");
+    printf("Rows Coloumns Values");
     for(i=0;i<=r;i++){
         printf("\n");
         for (j=0;j<3;j++){
