@@ -62,7 +62,7 @@ int main(){
     }
     max = k;
     for(i=0;i<max;i++){
-        printf(" %d^%d ",p3[i].coeff,p3[i].expo);
+        printf(" %dx^%d ",p3[i].coeff,p3[i].expo);
         if(i<max-1){
             printf(" + ");
         }
