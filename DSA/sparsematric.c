@@ -13,6 +13,7 @@ int main(){
     }
 
     printf("\nthe Sparse Matrix entered is:");
+    printf("Rows Coloumns Values");
     for(i=0;i<r;i++){
         printf("\n");
         for (j=0;j<c;j++){
