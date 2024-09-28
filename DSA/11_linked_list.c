@@ -41,7 +41,7 @@ void in_Rear(){
     }
     struct node* temp = create_node(read_item());
     ptr->link = temp;
-    printf("Node inseryted at the end\nStatus : ");
+    printf("Node inserted at the end\nStatus : ");
 }
 // function to insert a new node at any position in the linekd list
 void inAny_pos(){
@@ -70,7 +70,7 @@ void del_front(){
     struct node *ptr = head;
     head = ptr->link;
     free(ptr);
-    printf("Node deleated\nStatus : ");
+    printf("Node deleted from the front\nStatus : ");
 }
 // function to dipaly the linked list entirely 
 void display(){
@@ -87,6 +87,7 @@ void display(){
 
 int main(){
     in_Front();
+    display();
     in_Rear();
     display();
     del_front();
