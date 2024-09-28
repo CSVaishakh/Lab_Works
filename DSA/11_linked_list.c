@@ -79,13 +79,14 @@ void del_Rear(){
         printf("List is empty\n");
         return;
     }
-    struct node* ptr;
+    struct node* ptr = head;
     if (head->link == NULL){
-        ptr = head;
         head = NULL;
         free(ptr);
+        printf("Node Deleted\nStatus : ");
+        return;
     }
-    struct node* temp = head->link;
+    struct node* temp = head;
     while(temp->link != NULL){
         ptr = temp;
         temp = temp->link;
