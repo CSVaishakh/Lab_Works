@@ -18,48 +18,48 @@ int read_item(){
 // function to create a new node for insertion or creation of a linked list
 struct node* create_node(int item){
     struct node* new_node;
-    new_node = (struct node *)malloc(sizeof(struct node));
-    new_node->data = item;
-    new_node->link = NULL;
+    new_node = (struct node *)malloc(sizeof(struct node));//allocatong memory in the heap
+    new_node->data = item;//assigining the item to the data filed of the new node
+    new_node->link = NULL;//setting the link field to null
     return new_node;
 }
 // function to insert a new node in the front of a linked list
 void in_Front(){
-    struct node* temp = create_node(read_item());
+    struct node* temp = create_node(read_item());//creating a new temporary node using the create_node function
     if(temp == NULL){
         printf("Memory allocation failed");
         return;
     }
-    temp->link = head;
-    head = temp;
+    temp->link = head;//setting the link of the created node to as head 
+    head = temp;//updating head to point to the new node inserted
     printf("Node inserted at the begining\nStatus : ");
 }
 // function to insert a new node at the end of the linked list
 void in_Rear(){
     struct node* ptr = head;
     while(ptr->link != NULL){
-        ptr = ptr->link;
+        ptr = ptr->link;//traversing through the list to find the end of the list
     }
-    struct node* temp = create_node(read_item());
-    ptr->link = temp;
+    struct node* temp = create_node(read_item());//creating a new node to be inserted at the end
+    ptr->link = temp;//updating the link field of the penultimate node to point to the new node inserted at the end 
     printf("Node inserted at the end\nStatus : ");
 }
 // function to insert a new node at any position in the linekd list
 void inAny_pos(){
     int key;
     printf("enter the key ");
-    scanf("%d",&key);
+    scanf("%d",&key);//reading key(data filed of the respective node)
     struct node *ptr = head;
     while(ptr != NULL && ptr->data != key){
-        ptr = ptr->link;
+        ptr = ptr->link;//traversing thourgh the list to find the node wrt the key
     }
-    if (ptr == NULL){
+    if (ptr == NULL){//if not foud ptr will be null
         printf("Search failed, Node not foud\n");
         return;
     }
     struct node* temp = create_node(read_item());
-    temp->link = ptr->link;
-    ptr->link = temp;
+    temp->link = ptr->link;//updating the link field of the new inserted node wrt the key to point to the next node
+     ptr->link = temp;//updating the link field of the node to point to the new node 
     printf("Node inserted at desired positon\nStatus : ");
 }
 // function to delete a node fromm the begining of a linked list
@@ -69,8 +69,8 @@ void del_Front(){
         return;
     }
     struct node *ptr = head;
-    head = ptr->link;
-    free(ptr);
+    head = ptr->link;//updating the head to point to the secod node to delete the first node
+    free(ptr);//free the space in the heap
     printf("Node deleted from the front\nStatus : ");
 }
 // function to delete a node from the end of the linked list
@@ -80,16 +80,16 @@ void del_Rear(){
         return;
     }
     struct node* ptr = head;
-    if (head->link == NULL){
-        head = NULL;
-        free(ptr);
+    if (head->link == NULL){//checking if the list has only a single node
+        head = NULL;//updating the head
+        free(ptr);//free the heap
         printf("Node Deleted\nStatus : ");
         return;
     }
     struct node* temp = head;
-    while(temp->link != NULL){
+    while(temp->link != NULL){//traversing to the second last node
         ptr = temp;
-        temp = temp->link;
+        temp = temp->link;//t
     }
     ptr->link = NULL;
     free(temp);

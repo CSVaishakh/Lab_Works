@@ -1,182 +1,295 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
 
-struct Node {
-    int data;
-    struct Node* next;
+// Define a basic structure for a linked list node with data and link fields
+struct node {
+    int data;              // Data field to store integer data
+    struct node *link;     // Link field to point to the next node in the list
 };
 
-struct Node* head = NULL;
+// Initialize the head of the linked list as NULL
+struct node* head = NULL;
 
-void insertAtBeginning(int value) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = value;
-    newNode->next = head;
-    head = newNode;
-    printf("Inserted %d at the beginning.\n", value);
+// Function to read the integer value to be inserted into the linked list
+int read_item() {
+    int item;
+    printf("Enter the value: ");
+    scanf("%d", &item);
+    return item;   // Return the value read from the user
 }
 
-void insertAtEnd(int value) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = value;
-    newNode->next = NULL;
-
-    if (head == NULL) {
-        head = newNode;
-    } else {
-        struct Node* temp = head;
-        while (temp->next != NULL) {
-            temp = temp->next;
-        }
-        temp->next = newNode;
-    }
-    printf("Inserted %d at the end.\n", value);
-}
-
-void insertAfterValue(int afterValue, int newValue) {
-    struct Node* temp = head;
-    while (temp != NULL && temp->data != afterValue) {
-        temp = temp->next;
-    }
+// Function to create a new node with a given value
+struct node* create_node(int item) {
+    // Dynamically allocate memory for a new node in the heap
+    struct node* new_node = (struct node *)malloc(sizeof(struct node));
     
-    if (temp == NULL) {
-        printf("Value %d not found in the list. Insertion failed.\n", afterValue);
-        return;
-    }
+    // Assign the value to the data field of the new node
+    new_node->data = item;
 
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = newValue;
-    newNode->next = temp->next;
-    temp->next = newNode;
-    printf("Inserted %d after %d.\n", newValue, afterValue);
+    // Initialize the link field to NULL (new node points to nothing initially)
+    new_node->link = NULL;
+    
+    return new_node;   // Return the newly created node
 }
 
-void deleteFromBeginning() {
-    if (head == NULL) {
-        printf("The list is empty.\n");
+// Function to insert a new node at the front of the linked list
+void in_Front() {
+    // Create a new node using the create_node() function
+    struct node* temp = create_node(read_item());
+
+    // Check for memory allocation failure
+    if(temp == NULL) {
+        printf("Memory allocation failed\n");
         return;
     }
-    struct Node* temp = head;
-    head = head->next;
-    printf("Deleted %d from the beginning.\n", temp->data);
-    free(temp);
+
+    // Set the link of the new node to the current head of the list
+    temp->link = head;
+
+    // Update the head to point to the new node
+    head = temp;
+    
+    printf("Node inserted at the beginning\nStatus: ");
 }
 
-void deleteFromEnd() {
-    if (head == NULL) {
-        printf("The list is empty.\n");
+// Function to insert a new node at the end of the linked list
+void in_Rear() {
+    // Check if the list is empty, if yes, handle it as inserting at the front
+    if(head == NULL) {
+        in_Front();
         return;
     }
-    if (head->next == NULL) {
-        printf("Deleted %d from the end.\n", head->data);
-        free(head);
+
+    struct node* ptr = head;
+    
+    // Traverse to the last node of the list
+    while(ptr->link != NULL) {
+        ptr = ptr->link;
+    }
+
+    // Create a new node and insert it at the end
+    struct node* temp = create_node(read_item());
+    ptr->link = temp;
+    
+    printf("Node inserted at the end\nStatus: ");
+}
+
+// Function to insert a new node after a specific node (based on a key)
+void inAny_pos() {
+    int key;
+    printf("Enter the key (data of the node after which insertion is required): ");
+    scanf("%d", &key);
+
+    struct node *ptr = head;
+    
+    // Traverse to find the node with the specified key
+    while(ptr != NULL && ptr->data != key) {
+        ptr = ptr->link;
+    }
+
+    // If the key is not found in the list
+    if(ptr == NULL) {
+        printf("Search failed, Node not found\n");
+        return;
+    }
+
+    // Create a new node and insert it after the node with the key
+    struct node* temp = create_node(read_item());
+    temp->link = ptr->link;
+    ptr->link = temp;
+    
+    printf("Node inserted at the desired position\nStatus: ");
+}
+
+// Function to delete the node at the front of the linked list
+void del_Front() {
+    // Check if the list is empty
+    if(head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    // Store the current head in a temporary pointer
+    struct node *ptr = head;
+
+    // Move the head pointer to the next node
+    head = ptr->link;
+
+    // Free the memory of the old head node
+    free(ptr);
+    
+    printf("Node deleted from the front\nStatus: ");
+}
+
+// Function to delete the node at the end of the linked list
+void del_Rear() {
+    // Check if the list is empty
+    if(head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    struct node* ptr = head;
+    
+    // Check if there is only one node in the list
+    if(head->link == NULL) {
         head = NULL;
-        return;
-    }
-    struct Node* temp = head;
-    while (temp->next->next != NULL) {
-        temp = temp->next;
-    }
-    printf("Deleted %d from the end.\n", temp->next->data);
-    free(temp->next);
-    temp->next = NULL;
-}
-
-void deleteSpecificValue(int value) {
-    struct Node* temp = head;
-    struct Node* prev = NULL;
-
-    if (temp != NULL && temp->data == value) {
-        head = temp->next;
-        free(temp);
-        printf("Deleted %d from the list.\n", value);
+        free(ptr);  // Free the only node
+        printf("Node deleted\nStatus: ");
         return;
     }
 
-    while (temp != NULL && temp->data != value) {
-        prev = temp;
-        temp = temp->next;
+    // Traverse to the second last node
+    struct node* temp = head;
+    while(temp->link != NULL) {
+        ptr = temp;
+        temp = temp->link;
     }
 
-    if (temp == NULL) {
-        printf("%d not found in the list.\n", value);
-        return;
-    }
-
-    prev->next = temp->next;
+    // Disconnect the last node and free its memory
+    ptr->link = NULL;
     free(temp);
-    printf("Deleted %d from the list.\n", value);
+    
+    printf("Node deleted from the rear\nStatus: ");
 }
 
+// Function to delete a node at a specific position (based on a key)
+void delAny_Pos() {
+    int key;
+    printf("Enter the key (data of the node to delete): ");
+    scanf("%d", &key);
+
+    struct node *ptr = head;
+    struct node* temp = NULL;
+
+    // Traverse the list to find the node with the key
+    while(ptr != NULL) {
+        if(ptr->data == key) {
+            // If key is found, adjust the link of the previous node and delete the current node
+            temp->link = ptr->link;
+            free(ptr);
+            printf("Node deleted\nStatus: ");
+            return;
+        }
+        // Keep track of the previous node
+        temp = ptr;
+        ptr = ptr->link;
+    }
+
+    // If key was not found in the list
+    if(ptr == NULL) {
+        printf("Search failed, Node not found\n");
+    }
+}
+
+// Function to display all nodes in the linked list
 void display() {
-    struct Node* temp = head;
-    if (temp == NULL) {
-        printf("The list is empty.\n");
+    // Check if the list is empty
+    if(head == NULL) {
+        printf("List is empty\n");
         return;
     }
-    printf("Linked List: ");
-    while (temp != NULL) {
-        printf("%d -> ", temp->data);
-        temp = temp->next;
+
+    struct node* ptr = head;
+    
+    // Traverse through the list and print each node's data
+    while(ptr != NULL) {
+        printf("%d -> ", ptr->data);
+        ptr = ptr->link;
     }
-    printf("NULL\n");
+
+    printf("NULL\n");  // End of the list
 }
 
-int main() {
-    int choice, value, afterValue;
-
-    while (1) {
-        printf("\nLinked List Operations:\n");
-        printf("1. Insert at beginning\n");
-        printf("2. Insert at end\n");
-        printf("3. Insert after a specific value\n");
-        printf("4. Delete from beginning\n");
-        printf("5. Delete from end\n");
-        printf("6. Delete a specific value\n");
-        printf("7. Display the list\n");
-        printf("8. Exit\n");
+// Function to handle insertion operations (menu-driven)
+void insert() {
+    int ch;
+    while(true) {
+        printf("  INSERTION  ");
+        printf("\n1. At Beginning\n2. At End\n3. After a Certain Node\n4. Return to Main Menu\n");
         printf("Enter your choice: ");
-        scanf("%d", &choice);
+        scanf("%d", &ch);
 
-        switch (choice) {
+        switch (ch) {
             case 1:
-                printf("Enter value to insert: ");
-                scanf("%d", &value);
-                insertAtBeginning(value);
-                break;
-            case 2:
-                printf("Enter value to insert: ");
-                scanf("%d", &value);
-                insertAtEnd(value);
-                break;
-            case 3:
-                printf("Enter the value after which to insert: ");
-                scanf("%d", &afterValue);
-                printf("Enter the new value to insert: ");
-                scanf("%d", &value);
-                insertAfterValue(afterValue, value);
-                break;
-            case 4:
-                deleteFromBeginning();
-                break;
-            case 5:
-                deleteFromEnd();
-                break;
-            case 6:
-                printf("Enter value to delete: ");
-                scanf("%d", &value);
-                deleteSpecificValue(value);
-                break;
-            case 7:
+                in_Front();
                 display();
                 break;
-            case 8:
-                printf("Exiting the program.\n");
-                exit(0);
+            case 2:
+                in_Rear();
+                display();
+                break;
+            case 3:
+                inAny_pos();
+                display();
+                break;
+        }
+
+        if(ch == 4) {
+            break;
+        } else if(ch > 4) {
+            printf("Invalid choice\n");
+        }
+    }
+}
+
+// Function to handle deletion operations (menu-driven)
+void delete() {
+    int ch;
+    while(true) {
+        printf("  DELETION  ");
+        printf("\n1. At Beginning\n2. At End\n3. A Certain Node\n4. Return to Main Menu\n");
+        printf("Enter your choice: ");
+        scanf("%d", &ch);
+
+        switch (ch) {
+            case 1:
+                del_Front();
+                display();
+                break;
+            case 2:
+                del_Rear();
+                display();
+                break;
+            case 3:
+                delAny_Pos();
+                display();
+                break;
+        }
+
+        if(ch == 4) {
+            break;
+        } else if(ch > 4) {
+            printf("Invalid choice\n");
+        }
+    }
+}
+
+// Main function to run the program and handle user input for menu options
+void main() {
+    int ch;
+    while(true) {
+        printf("\n  Linked List  \n");
+        printf("1. Insert\n2. Delete\n3. Display\n4. EXIT\n");
+        printf("Enter your choice: ");
+        scanf("%d", &ch);
+
+        switch (ch) {
+            case 1:
+                insert();
+                break;
+            case 2:
+                delete();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                printf("Exiting program. Goodbye!\n");
+                return;
             default:
                 printf("Invalid choice. Please try again.\n");
         }
     }
-
-    return 0;
 }
