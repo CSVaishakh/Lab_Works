@@ -88,29 +88,54 @@ void del_rear(){
     free(temp);
     printf("Node deleted from the rear\nStatus : ");
 }
-// function to dipaly the linked list entirely 
-void display(){
-    struct node *ptr = head;
-    if(ptr == NULL){
+// function to delete a node at a certain postion
+void delAny_Pos(){
+    int key;
+    printf("enter the key ");
+    scanf("%d",&key);
+    if(head == NULL){
         printf("List is empty");
         return;
-    }while(ptr != NULL){
-        printf("%d -> ",ptr->data);
+    }
+    struct node* ptr = head;
+    struct node* temp;
+    while(ptr != NULL){
+        if(ptr->data == key){
+            temp->link = ptr->link;
+            free(ptr);
+        }else{
+            temp = ptr;
+            ptr = ptr->link;
+        }
+    }
+    printf("Node deleted\nStatus : ");
+}
+// function to dipaly the linked list entirely 
+void display(){
+    int key;
+    printf("enter the key ");
+    scanf("%d",&key);
+    struct node *ptr = head;
+    while(ptr != NULL && ptr->data != key){
         ptr = ptr->link;
     }
+    if (ptr == NULL){
+        printf("Search failed, Node not foud");
+        return;
+    }
+    struct node* temp = ptr;
+    ptr->link = temp->link;
+    free(ptr);
     printf("NULL\n");
 }
 
-int main(){
+void main(){
     in_Front();
-    display();
-    inAny_pos();
     display();
     in_Rear();
     display();
-    del_front();
+    inAny_pos();
     display();
-    del_rear();
+    delAny_Pos();
     display();
-    return 0;
 }
