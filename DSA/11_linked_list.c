@@ -22,7 +22,7 @@ struct node* create_node(int item){
     new_node->link = NULL;
     return new_node;
 }
-// dinction to insert a new node in the front of a linked list
+// function to insert a new node in the front of a linked list
 void in_Front(){
     struct node* temp = create_node(read_item());
     if(temp == NULL){
@@ -46,12 +46,12 @@ void in_Rear(){
 // function to insert a new node at any position in the linekd list
 void inAny_pos(){
     int key;
-    printf("enter the value  ");
+    printf("enter the key ");
     scanf("%d",&key);
     struct node *ptr = head;
-    do{
+    while(ptr != NULL && ptr->data != key){
         ptr = ptr->link;
-    }while(ptr != NULL && ptr->data != key);
+    }
     if (ptr == NULL){
         printf("Search failed, Node not foud");
         return;
@@ -72,6 +72,22 @@ void del_front(){
     free(ptr);
     printf("Node deleted from the front\nStatus : ");
 }
+// function to delete a node from the end of the linked list
+void del_rear(){
+    struct node* ptr;
+    if (head->link == NULL){
+        ptr = head;
+        head = NULL;        free(ptr);
+    }
+    struct node* temp = head->link;
+    while(temp->link != NULL){
+        ptr = temp;
+        temp = temp->link;
+    }
+    ptr->link = NULL;
+    free(temp);
+    printf("Node deleted from the rear\nStatus : ");
+}
 // function to dipaly the linked list entirely 
 void display(){
     struct node *ptr = head;
@@ -88,9 +104,13 @@ void display(){
 int main(){
     in_Front();
     display();
+    inAny_pos();
+    display();
     in_Rear();
     display();
     del_front();
+    display();
+    del_rear();
     display();
     return 0;
 }
