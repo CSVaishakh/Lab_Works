@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 // creating the basic struct for the linked list with data and link fields
 struct node{
     int data;
@@ -167,5 +168,27 @@ void delete(){
 }
 // main function
 void main(){
-    
+    while(true){
+        printf("\n  Linked List  \n");
+        printf("1.Insert\n2.Delete\n3.Display\n4.EXIT\n");
+        printf("Enter your choice : ");
+        scanf("%d",&ch);
+        switch(ch){
+        	case 1:
+                insert();
+                break;
+        	case 2:
+            	delete();
+   				break;
+        	case 3:
+            	display();
+            	break;
+        }
+        if(ch==4){
+            printf("Exiting\n");
+        	break;
+        }else if(ch>4){
+        	printf("Invalid choice\n");
+        }
+    }
 }
