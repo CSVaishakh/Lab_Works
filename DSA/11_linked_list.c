@@ -75,10 +75,15 @@ void del_Front(){
 }
 // function to delete a node from the end of the linked list
 void del_Rear(){
+    if(head == NULL){
+        printf("List is empty\n");
+        return;
+    }
     struct node* ptr;
     if (head->link == NULL){
         ptr = head;
-        head = NULL;        free(ptr);
+        head = NULL;
+        free(ptr);
     }
     struct node* temp = head->link;
     while(temp->link != NULL){
@@ -127,68 +132,84 @@ void display(){
 // insret function for menu
 void insert(){
     int ch;
-    ptrintf("1.At Begining\2.At End\n3.After a certain Node");
-    printf("Enter your choice");
-    scanf("%d",ch);
-    switch (ch){
-    case 1:
-        in_Front();
-        break;
-    case 2:
-        in_Rear();
-        break;
-    case 3:
-        inAny_pos();
-        break;
-    default:
-        printf("Invalid choice\n");
-        break;
+    while(true){
+        printf("  INSERTION  ");
+        printf("\n1.At Begining\n2.At End\n3.After a certain Node\n4.Return to main menu\n");
+        printf("Enter your choice : ");
+        scanf("%d",&ch);
+        switch (ch){
+            case 1:
+                in_Front();
+                display();
+                break;
+            case 2:
+                in_Rear();
+                display();
+                break;
+            case 3:
+                inAny_pos();
+                display();
+                break;
+            }
+        if(ch==4){
+        	break;
+        }else if(ch>4){
+        	printf("Invalid choice\n");
+        }
     }
 }
 // delete function for menu
 void delete(){
     int ch;
-    ptrintf("1.At Begining\2.At End\n3A certain Node");
-    printf("Enter your choice");
-    scanf("%d",ch);
-    switch (ch){
-    case 1:
-        del_Front();
-        break;
-    case 2:
-        del_Rear();
-        break;
-    case 3:
-        delAny_Pos();
-        break;
-    default:
-        printf("Invalid choice\n");
-        break;
+    while(true){
+        printf("  DELETION  ");
+        printf("\n1.At Begining\n2.At End\n3.A certain Node\n4.Return to main menu\n");
+        printf("Enter your choice : ");
+        scanf("%d",&ch);
+        switch (ch){
+            case 1:
+                del_Front();
+                display();
+                break;
+            case 2:
+                del_Rear();
+                display();
+                break;
+            case 3:
+                delAny_Pos();
+                display();
+                break;
+        }
+        if(ch==4){
+        	break;
+        }else if(ch>4){
+        	printf("Invalid choice\n");
+        }
     }
 }
 // main function
 void main(){
+    int ch;
     while(true){
         printf("\n  Linked List  \n");
         printf("1.Insert\n2.Delete\n3.Display\n4.EXIT\n");
         printf("Enter your choice : ");
         scanf("%d",&ch);
-        switch(ch){
-        	case 1:
+        switch (ch) {
+            case 1:
                 insert();
                 break;
-        	case 2:
-            	delete();
-   				break;
-        	case 3:
-            	display();
-            	break;
-        }
-        if(ch==4){
-            printf("Exiting\n");
-        	break;
-        }else if(ch>4){
-        	printf("Invalid choice\n");
+            case 2:
+                delete();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                printf("Exiting program. Goodbye!\n");
+                return;
+            default:
+                printf("Invalid choice. Please try again.\n");
         }
     }
 }
