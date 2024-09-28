@@ -53,7 +53,7 @@ void inAny_pos(){
         ptr = ptr->link;
     }
     if (ptr == NULL){
-        printf("Search failed, Node not foud");
+        printf("Search failed, Node not foud\n");
         return;
     }
     struct node* temp = create_node(read_item());
@@ -62,7 +62,7 @@ void inAny_pos(){
     printf("Node inserted at desired positon\nStatus : ");
 }
 // function to delete a node fromm the begining of a linked list
-void del_front(){
+void del_Front(){
     if(head == NULL){
         printf("List is empty");
         return;
@@ -73,7 +73,7 @@ void del_front(){
     printf("Node deleted from the front\nStatus : ");
 }
 // function to delete a node from the end of the linked list
-void del_rear(){
+void del_Rear(){
     struct node* ptr;
     if (head->link == NULL){
         ptr = head;
@@ -93,49 +93,79 @@ void delAny_Pos(){
     int key;
     printf("enter the key ");
     scanf("%d",&key);
-    if(head == NULL){
-        printf("List is empty");
-        return;
-    }
-    struct node* ptr = head;
-    struct node* temp;
+    struct node *ptr = head;
+    struct node* temp = NULL;
     while(ptr != NULL){
-        if(ptr->data == key){
+        if (ptr->data == key){
             temp->link = ptr->link;
             free(ptr);
-        }else{
-            temp = ptr;
-            ptr = ptr->link;
+            return;
         }
+        temp = ptr;
+        ptr = ptr->link;
+    }
+    if (ptr == NULL){
+        printf("Search failed, Node not foud\n");
+        return;
     }
     printf("Node deleted\nStatus : ");
 }
 // function to dipaly the linked list entirely 
 void display(){
-    int key;
-    printf("enter the key ");
-    scanf("%d",&key);
-    struct node *ptr = head;
-    while(ptr != NULL && ptr->data != key){
-        ptr = ptr->link;
-    }
-    if (ptr == NULL){
-        printf("Search failed, Node not foud");
+    if(head == NULL){
+        printf("List is empty");
         return;
     }
-    struct node* temp = ptr;
-    ptr->link = temp->link;
-    free(ptr);
+    struct node* ptr = head;
+    while(ptr != NULL){
+        printf("%d -> ",ptr->data);
+        ptr = ptr->link;
+    }
     printf("NULL\n");
 }
-
+// insret function for menu
+void insert(){
+    int ch;
+    ptrintf("1.At Begining\2.At End\n3.After a certain Node");
+    printf("Enter your choice");
+    scanf("%d",ch);
+    switch (ch){
+    case 1:
+        in_Front();
+        break;
+    case 2:
+        in_Rear();
+        break;
+    case 3:
+        inAny_pos();
+        break;
+    default:
+        printf("Invalid choice\n");
+        break;
+    }
+}
+// delete function for menu
+void delete(){
+    int ch;
+    ptrintf("1.At Begining\2.At End\n3A certain Node");
+    printf("Enter your choice");
+    scanf("%d",ch);
+    switch (ch){
+    case 1:
+        del_Front();
+        break;
+    case 2:
+        del_Rear();
+        break;
+    case 3:
+        delAny_Pos();
+        break;
+    default:
+        printf("Invalid choice\n");
+        break;
+    }
+}
+// main function
 void main(){
-    in_Front();
-    display();
-    in_Rear();
-    display();
-    inAny_pos();
-    display();
-    delAny_Pos();
-    display();
+    
 }
