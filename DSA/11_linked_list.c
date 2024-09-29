@@ -109,7 +109,7 @@ void delAny_Pos(){
             return;
         }
         temp = ptr;
-        ptr = ptr->link;//traveresing though the node
+        ptr = ptr->link;//traversing though the node
     }
     if (ptr == NULL){
         printf("Search failed, Node not foud\n");
@@ -126,7 +126,7 @@ void display(){
     struct node* ptr = head;
     while(ptr != NULL){//looping thought the list
         printf("%d -> ",ptr->data);//printing the  initial node
-        ptr = ptr->link;//mooving to the next node
+        ptr = ptr->link;//moving to the next node
     }
     printf("NULL\n");
 }
