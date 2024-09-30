@@ -1,4 +1,4 @@
-package com.vaishakh.lab.Abstract_Classes;
+package com.vaishakh.lab.abstract_classes;
 
 public class main {
     public static void main(String[] args) {
