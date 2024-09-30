@@ -2,7 +2,7 @@ package com.vaishakh.lab.basic;
 
 import java.util.Scanner;
 
-public class charcnt{
+public class frequency_counter {
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         System.out.println("Enter a string: ");

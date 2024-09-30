@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7991161c-26fa-4c94-bbe8-bf8e738ad8e7" name="Changes" comment="commit and push">
-      <change beforePath="$PROJECT_DIR$/lab/Abstract_Classes/Abstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/abstract_classes/Abstract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab/Abstract_Classes/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/abstract_classes/main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab/exception_handling/try_catch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab/basic/charcnt.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/basic/frequency_counter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab/emp_dat/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/emp_dat/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +75,8 @@
       <workItem from="1727084541953" duration="686000" />
       <workItem from="1727221470814" duration="21000" />
       <workItem from="1727675562280" duration="103000" />
-      <workItem from="1727683767338" duration="707000" />
+      <workItem from="1727683767338" duration="1551000" />
+      <workItem from="1727685767636" duration="1396000" />
     </task>
     <task id="LOCAL-00001" summary="commit and push">
       <option name="closed" value="true" />
@@ -172,7 +174,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727221482481</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1727685071981</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1727685071981</updated>
+    </task>
+    <task id="LOCAL-00014" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1727685173979</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1727685173979</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
