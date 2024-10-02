@@ -120,7 +120,7 @@ void delAny_Pos(){
 // function to dipaly the linked list entirely 
 void display(){
     if(head == NULL){//checking if the list  is empty
-        printf("List is empty");
+        printf("List is empty,UNDERFLOW");
         return;
     }
     struct node* ptr = head;
@@ -130,87 +130,67 @@ void display(){
     }
     printf("NULL\n");
 }
-// insret function for menu
-void insert(){
-    int ch;
-    while(true){
-        printf("  INSERTION  ");
-        printf("\n1.At Begining\n2.At End\n3.After a certain Node\n4.Return to main menu\n");
-        printf("Enter your choice : ");
-        scanf("%d",&ch);
-        switch (ch){
+int main() {
+    int s = 0;
+    char option;
+    do {
+        // Main menu for insertion, deletion, and display operations
+        printf("\n1: Insertion\n2: Deletion\n3: Display\n4: Exit\nChoice: ");
+        scanf("%d", &s);
+        switch (s) {
             case 1:
-                in_Front();
-                display();
+                // Submenu for choosing where to insert
+                printf("\nSelect Position\n1: Front\n2: End\n3: Between Nodes\nChoice: ");
+                scanf("%d", &s);
+                switch (s) {
+                    case 1: 
+                        in_Front();
+                        display();
+                        break;  // Insert at the front
+                    case 2: 
+                        in_Rear();
+                        display();
+                        break;    // Insert at the end
+                    case 3: 
+                        inAny_pos();
+                        display();
+                        break; // Insert at a specific position
+                    default: printf("Wrong Input\n");
+                }
                 break;
             case 2:
-                in_Rear();
-                display();
+                // Submenu for choosing which node to delete
+                printf("\nSelect Position\n1: Front\n2: End\n3: Between Nodes\nChoice: ");
+                scanf("%d", &s);
+                switch (s) {
+                    case 1: 
+                        del_Front();
+                        display();
+                        break;  // Delete from the front
+                    case 2: 
+                        del_Rear();
+                        display();
+                        break;    // Delete from the end
+                    case 3: 
+                        delAny_Pos();
+                        display();
+                        break; // Delete a specific node
+                    default: printf("Wrong Input\n");
+                }
                 break;
             case 3:
-                inAny_pos();
-                display();
-                break;
-            }
-        if(ch==4){
-        	break;
-        }else if(ch>4){
-        	printf("Invalid choice\n");
-        }
-    }
-}
-// delete function for menu
-void delete(){
-    int ch;
-    while(true){
-        printf("  DELETION  ");
-        printf("\n1.At Begining\n2.At End\n3.A certain Node\n4.Return to main menu\n");
-        printf("Enter your choice : ");
-        scanf("%d",&ch);
-        switch (ch){
-            case 1:
-                del_Front();
-                display();
-                break;
-            case 2:
-                del_Rear();
-                display();
-                break;
-            case 3:
-                delAny_Pos();
-                display();
-                break;
-        }
-        if(ch==4){
-        	break;
-        }else if(ch>4){
-        	printf("Invalid choice\n");
-        }
-    }
-}
-// main function
-void main(){
-    int ch;
-    while(true){
-        printf("\n  Linked List  \n");
-        printf("1.Insert\n2.Delete\n3.Display\n4.EXIT\n");
-        printf("Enter your choice : ");
-        scanf("%d",&ch);
-        switch (ch) {
-            case 1:
-                insert();
-                break;
-            case 2:
-                delete();
-                break;
-            case 3:
-                display();
+                display();  // Display the list
                 break;
             case 4:
-                printf("Exiting program. Goodbye!\n");
-                return;
+                printf("Exited!");  // Exit the program
+                exit(0);
             default:
-                printf("Invalid choice. Please try again.\n");
+                printf("Wrong Choice!");
         }
-    }
+        printf("\nDo you want to continue? y/n\nChoice: ");
+        scanf(" %c", &option);  // Ask if the user wants to continue
+    } while (option == 'Y' || option == 'y');
+
+    printf("Exited!");
+    return 0;
 }
