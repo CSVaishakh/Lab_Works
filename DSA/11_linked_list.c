@@ -76,7 +76,7 @@ void del_Front(){
 // function to delete a node from the end of the linked list
 void del_Rear(){
     if(head == NULL){
-        printf("List is empty\n");
+        printf("List is empty, UNDERFLOW\n");
         return;
     }
     struct node* ptr = head;
