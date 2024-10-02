@@ -18,7 +18,7 @@ int read_item(){
 // function to create a new node for insertion or creation of a linked list
 struct node* create_node(int item){
     struct node* new_node;
-    new_node = (struct node *)malloc(sizeof(struct node));//allocatong memory in the heap
+    new_node = (struct node *)malloc(sizeof(struct node));//allocating memory in the heap
     new_node->data = item;//assigining the item to the data filed of the new node
     new_node->link = NULL;//setting the link field to null
     return new_node;
@@ -36,7 +36,7 @@ void in_Front(){
 }
 // function to insert a new node at the end of the linked list
 void in_Rear(){
-    struct node* ptr = head;
+    struct node* ptr = head;0
     while(ptr->link != NULL){
         ptr = ptr->link;//traversing through the list to find the end of the list
     }
@@ -65,7 +65,7 @@ void inAny_pos(){
 // function to delete a node fromm the begining of a linked list
 void del_Front(){
     if(head == NULL){
-        printf("List is empty");
+        printf("List is empty, UNDERFLOW");
         return;
     }
     struct node *ptr = head;
