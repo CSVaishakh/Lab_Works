@@ -23,6 +23,19 @@ struct node* create_node(int item){
     new_node->link = NULL;//setting the link field to null
     return new_node;
 }
+// function to dipaly the linked list entirely 
+void display(){
+    if(head == NULL){//checking if the list  is empty
+        printf("List is empty,UNDERFLOW");
+        return;
+    }
+    struct node* ptr = head;
+    while(ptr != NULL){//looping thought the list
+        printf("%d -> ",ptr->data);//printing the  initial node
+        ptr = ptr->link;//moving to the next node
+    }
+    printf("NULL\n");
+}
 // function to insert a new node in the front of a linked list
 void in_Front(){
     struct node* temp = create_node(read_item());//creating a new temporary node using the create_node function
@@ -36,7 +49,7 @@ void in_Front(){
 }
 // function to insert a new node at the end of the linked list
 void in_Rear(){
-    struct node* ptr = head;0
+    struct node* ptr = head;
     while(ptr->link != NULL){
         ptr = ptr->link;//traversing through the list to find the end of the list
     }
@@ -65,13 +78,14 @@ void inAny_pos(){
 // function to delete a node fromm the begining of a linked list
 void del_Front(){
     if(head == NULL){
-        printf("List is empty, UNDERFLOW");
+        printf("List is empty, UNDERFLOW\n");
         return;
     }
     struct node *ptr = head;
     head = ptr->link;//updating the head to point to the secod node to delete the first node
     free(ptr);//free the space in the heap
     printf("Node deleted from the front\nStatus : ");
+    display();
 }
 // function to delete a node from the end of the linked list
 void del_Rear(){
@@ -84,6 +98,7 @@ void del_Rear(){
         head = NULL;//updating the head
         free(ptr);//free the heap
         printf("Node Deleted\nStatus : ");
+        display();
         return;
     }
     struct node* temp = head;
@@ -94,6 +109,7 @@ void del_Rear(){
     ptr->link = NULL;//updating the link field of the second last node to be null to delteing the last node 
     free(temp);
     printf("Node deleted from the rear\nStatus : ");
+    display();
 }
 // function to delete a node at a certain postion
 void delAny_Pos(){
@@ -106,6 +122,7 @@ void delAny_Pos(){
         if (ptr->data == key){//locating the node to be deleted wrt to the key
             temp->link = ptr->link;//updating the previous node to the point to the node after the node to be deleted
             free(ptr);//freeing the heap 
+            display();
             return;
         }
         temp = ptr;
@@ -116,24 +133,11 @@ void delAny_Pos(){
         return;
     }
     printf("Node deleted\nStatus : ");
-}
-// function to dipaly the linked list entirely 
-void display(){
-    if(head == NULL){//checking if the list  is empty
-        printf("List is empty,UNDERFLOW");
-        return;
-    }
-    struct node* ptr = head;
-    while(ptr != NULL){//looping thought the list
-        printf("%d -> ",ptr->data);//printing the  initial node
-        ptr = ptr->link;//moving to the next node
-    }
-    printf("NULL\n");
+    display();
 }
 int main() {
     int s = 0;
-    char option;
-    do {
+    while(true) {
         // Main menu for insertion, deletion, and display operations
         printf("\n1: Insertion\n2: Deletion\n3: Display\n4: Exit\nChoice: ");
         scanf("%d", &s);
@@ -160,37 +164,31 @@ int main() {
                 break;
             case 2:
                 // Submenu for choosing which node to delete
-                printf("\nSelect Position\n1: Front\n2: End\n3: Between Nodes\nChoice: ");
+                printf("\nSelect Position\n1: Front\n2: End\n3: Specific Node\nChoice: ");
                 scanf("%d", &s);
                 switch (s) {
                     case 1: 
                         del_Front();
-                        display();
                         break;  // Delete from the front
                     case 2: 
                         del_Rear();
-                        display();
                         break;    // Delete from the end
                     case 3: 
                         delAny_Pos();
-                        display();
-                        break; // Delete a specific node
+                        break; // Delete a specific node    char option;
                     default: printf("Wrong Input\n");
                 }
                 break;
             case 3:
                 display();  // Display the list
                 break;
-            case 4:
-                printf("Exited!");  // Exit the program
-                exit(0);
-            default:
-                printf("Wrong Choice!");
         }
-        printf("\nDo you want to continue? y/n\nChoice: ");
-        scanf(" %c", &option);  // Ask if the user wants to continue
-    } while (option == 'Y' || option == 'y');
-
-    printf("Exited!");
+        if(s==4){
+            printf("Exiting...");
+            break;
+        }else if(s > 4){
+            printf("Invalid Choice");
+        }
+    }
     return 0;
 }
