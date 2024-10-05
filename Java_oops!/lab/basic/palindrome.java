@@ -9,15 +9,17 @@ public class palindrome {
         String word = in.nextLine();
         int x = word.length();
         char[] letters=word.toCharArray();
-        for (int i=0;i<=x;i++) {
-            if (letters[i]==letters[x-i-1]){
-                System.out.println(word+ " is a palindrome");
+        boolean flag = true;
+        for (int i=0;i<x/2;i++) {
+            if (letters[i]!=letters[x-i-1]) {
+                flag = false;
                 break;
             }
-            else {
-                System.out.println(word+ " is not a palindrome");
-                break;
-            }
+        }
+        if(flag){
+            System.out.println("The word is a palindrome");
+        }else{
+            System.out.println("The word is not a palindrome");
         }
     }
 }
