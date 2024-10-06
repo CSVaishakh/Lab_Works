@@ -23,7 +23,7 @@ struct node* create_node(int item){
     new_node->link = NULL;//setting the link field to null
     return new_node;
 }
-// function to dipaly the linked list entirely 
+// function to dispaly the linked list entirely 
 void display(){
     if(head == NULL){//checking if the list  is empty
         printf("List is empty,UNDERFLOW");
