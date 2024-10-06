@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
-#define Max_Size 5
+#define Max_Size 3
 int queue[Max_Size],front = -1,rear = -1;
 // function to check if the queue is full
 bool isFull(){
@@ -21,6 +21,7 @@ bool isEmpty(){
 void enqueue(int item){
     if(isFull()){
         printf("Queue is full");
+        return;
     }else if(isEmpty()){
         front = rear = 0;
         queue[rear] = item;
@@ -28,6 +29,7 @@ void enqueue(int item){
         rear++;
         queue[rear]=item;
     }
+    printf("Element succesfully added to the queue");
 }
 // function to dequeue an element from the queue
 void dequeue(){

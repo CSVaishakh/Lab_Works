@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
-#define Max_Size 3
+#define Max_Size 3            
 int queue[Max_Size];
 int front =-1, rear = -1;
 bool isFull(){
@@ -20,7 +20,7 @@ bool isEmpty(){
 
 void enqueue(int item){
     if(isFull()){
-        printf("Queue is full, OVERFLOW");
+        printf("Queue is full,OVERFLOW");
     }else if(isEmpty()){
         front = rear = 0;
         queue[rear]=item;
@@ -33,7 +33,7 @@ void enqueue(int item){
 
 void dequeue(){
     if (isEmpty()){
-        printf("Queue is empty, UNDERFLOW");
+        printf("Queue is empty,UNDERFLOW");
     }else if(front == rear){
         printf("The item removed from the queue is %d",queue[front]);
         front = rear = -1;
