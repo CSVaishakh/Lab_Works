@@ -57,7 +57,7 @@ void display() {
         printf("\n");
     }
 }
-int main(){
+void main(){
     int ch,item;
 	while(true){
 		printf("\n*****Queues*****\n");

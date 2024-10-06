@@ -1,29 +1,26 @@
 #include<stdio.h>
 #include<stdbool.h>
+#define Max_Size 3
 int top =-1;
-int stk[100];
+int stk[Max_Size];
 
 
-void isFull(int Max_Size){
+bool isFull(){
     if (top == Max_Size-1){
-        printf("Stack is full");
+        return true;
     }
-    else{
-    	printf("Stack is not full");
-    }
+    return true;
 }
 //isEmpty function
-void isEmpty(){
+bool isEmpty(){
     if (top == -1){
-        printf("Stack is empty");
+        return true;
     }
-    else{
-    	printf("Stack is not empty");
-    }
+    return false;
 }
 //push function
-void push(int Max_Size){
-    if(top == Max_Size-1){
+void push(){
+    if(isFull()){
    	printf("Stack Overflow");
     }
     else{
@@ -37,7 +34,7 @@ void push(int Max_Size){
 }
 //pop function
 void pop(){
-    if(top == -1){
+    if(isEmpty()){
         printf("Stack Underflow");
     }
     else{
@@ -47,43 +44,37 @@ void pop(){
     }
 }
 //peek function
-void peek(){
-    printf("The element at the top of the stack is %d",stk[top]);
+void display(){
+    int i = top;
+    for(;i > -1,i--){
+        printf(" %d ",stk[i]);
+    }
 }
 //main function
-int main(){
-    int ch,Max_Size;
-    printf("Enter the size of the stack ");
-    scanf("%d",&Max_Size);
+void main(){
+    int ch;
     while(true){
         printf("\n   *****STACK OPERATIONS*****   \n");
-        printf("1.PUSH\n2.POP\n3.DISPLAY\n4.IS THE STACK FULL\n5.IS THE STACK EMPTY\n6.EXIT\n");
+        printf("1.PUSH\n2.POP\n3.DISPLAY\n.EXIT\n");
         printf("Enter your choice : ");
         scanf("%d",&ch);
         printf("\n"); 
         switch(ch){
         	case 1:
-                push(Max_Size);
+                push();
                 break;
         	case 2:
             	pop();
    				break;
         	case 3:
-            	peek();
+            	display();
             	break;
-        	case 4:
-            	isFull(Max_Size);
-				break;
-			case 5:        	
-        		isEmpty();
-        		break;
         }
-        if(ch==6){
+        if(ch==4){
             printf("Exiting\n");
         	break;
-        }else if(ch>6){
+        }else if(ch>4){
         	printf("Invalid choice\n");
         }
     }
-    return 0;
 }
