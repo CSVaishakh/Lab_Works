@@ -18,8 +18,8 @@ public class palindrome {
         }
         if(flag){
             System.out.println("The word is a palindrome");
-        }else{
-            System.out.println("The word is not a palindrome");
+            return;
         }
+        System.out.println("The word is not a palindrome");
     }
 }
