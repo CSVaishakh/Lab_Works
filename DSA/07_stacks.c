@@ -38,7 +38,7 @@ void pop(){
         printf("Stack Underflow");
     }
     else{
-        int item = stk[top];
+        int item = stk[top];  
         top--;
         printf("Element sucessfully removed from the stack is %d",item);
     }
