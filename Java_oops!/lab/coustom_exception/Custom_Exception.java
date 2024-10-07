@@ -110,7 +110,6 @@ public class Custom_Exception {
         }
         if (flag == 0){
             System.out.println("Account not Found");
-
         }
     }
     public static void main(String[] args) {
