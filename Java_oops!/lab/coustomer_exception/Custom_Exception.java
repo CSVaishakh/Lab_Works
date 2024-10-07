@@ -1,4 +1,4 @@
-package com.vaishakh.lab.coustom_exception;
+package com.vaishakh.lab.coustomer_exception;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package com.vaishakh.lab.classes;
+package com.vaishakh.lab.basic;
 
 import java.util.Scanner;
 
