@@ -31,7 +31,7 @@ public class Custom_Exception {
         for(int i =0; i<n; i++){
             if(accNumber[i] == acno){
                 flag = 1;
-                pos =1;
+                pos = i;
                 break;
             }
         }
