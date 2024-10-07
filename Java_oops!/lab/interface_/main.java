@@ -1,5 +1,5 @@
 
-package com.vaishakh.lab.emp_dat;
+package com.vaishakh.lab.interface_;
 
 public interface main {
     public static void main(String[] args) {

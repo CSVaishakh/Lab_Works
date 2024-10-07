@@ -1,4 +1,4 @@
-package com.vaishakh.lab.emp_dat;
+package com.vaishakh.lab.interface_;
 
 class manager extends employe{
     public manager(String name,int age,int emp_id,long ph_no,String address){

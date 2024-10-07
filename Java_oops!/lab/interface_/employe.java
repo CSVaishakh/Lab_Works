@@ -1,11 +1,11 @@
-package com.vaishakh.lab.emp_dat;
+package com.vaishakh.lab.interface_;
 
 public class employe {
     static String name = "";
     static int age = 0;
     static int emp_id = 0;
     static long ph_no = 0;
-    static String address = "";
+   static String address = "";
 
     public employe(String name,int age,int emp_id,long ph_no,String address){
         this.name = name;

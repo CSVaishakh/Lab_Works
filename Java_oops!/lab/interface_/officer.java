@@ -1,4 +1,4 @@
-package com.vaishakh.lab.emp_dat;
+package com.vaishakh.lab.interface_;
 
 public class officer extends employe{
     public officer(String name, int age, int emp_id, long ph_no, String address){

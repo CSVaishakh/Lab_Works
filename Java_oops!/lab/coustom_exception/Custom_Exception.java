@@ -120,6 +120,10 @@ public class Custom_Exception {
         String[] Names = new String[25];
         Scanner scan = new Scanner(System.in);
         Custom_Exception e = new Custom_Exception();
+        System.out.print("Enter No. of Customers: ");
+        n = scan.nextInt();
+        e.accounts(n, Names, accNumber, amount);
+
         System.out.println("Banking System");
         System.out.println("1. Display All Accounts");
         System.out.println("2. Search Account");
