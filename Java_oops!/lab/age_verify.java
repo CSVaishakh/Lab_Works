@@ -1,4 +1,6 @@
-package com.vaishakh.lab.exception_handling;
+package com.vaishakh.lab;
+
+import java.util.Scanner;
 
 public class age_verify {
         void vote(int age) throws IllegalAccessException {
@@ -16,4 +18,16 @@ public class age_verify {
                 System.out.println("Finally age verification done");
             }
         }
+}
+
+class try_catch {
+    public static void main(String[] args) throws IllegalAccessException {
+        Scanner sc = new Scanner(System.in);
+        int age;
+        System.out.print("Enter age of voter: ");
+        age = sc.nextInt();
+        age_verify av = new age_verify();
+        av.vote(age);
+        System.out.println("Verification completed successfully");
+    }
 }

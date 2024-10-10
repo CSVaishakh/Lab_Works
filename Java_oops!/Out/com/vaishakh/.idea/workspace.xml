@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7991161c-26fa-4c94-bbe8-bf8e738ad8e7" name="Changes" comment="commit and push">
-      <change beforePath="$PROJECT_DIR$/lab/emp_dat/employe.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/interface_/employe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab/emp_dat/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/interface_/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab/emp_dat/manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/interface_/manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab/emp_dat/officer.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/interface_/officer.java" afterDir="false" />
-    </list>
+    <list default="true" id="7991161c-26fa-4c94-bbe8-bf8e738ad8e7" name="Changes" comment="commit and push" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,6 +83,7 @@
       <workItem from="1728235078924" duration="971000" />
       <workItem from="1728281987398" duration="324000" />
       <workItem from="1728288809852" duration="1832000" />
+      <workItem from="1728293486160" duration="2683000" />
     </task>
     <task id="LOCAL-00001" summary="commit and push">
       <option name="closed" value="true" />
@@ -257,7 +253,55 @@
       <option name="project" value="LOCAL" />
       <updated>1728231175690</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1728294195747</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1728294195747</updated>
+    </task>
+    <task id="LOCAL-00023" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1728294211316</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1728294211316</updated>
+    </task>
+    <task id="LOCAL-00024" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1728294267805</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1728294267805</updated>
+    </task>
+    <task id="LOCAL-00025" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1728294889419</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1728294889419</updated>
+    </task>
+    <task id="LOCAL-00026" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1728295436286</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1728295436286</updated>
+    </task>
+    <task id="LOCAL-00027" summary="commit and push">
+      <option name="closed" value="true" />
+      <created>1728295889119</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1728295889119</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
