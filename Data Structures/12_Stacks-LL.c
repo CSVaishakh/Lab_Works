@@ -77,4 +77,5 @@ void main() {
             default: 
                 printf("Invalid choice");
         }
+    }
 }
