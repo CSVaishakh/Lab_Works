@@ -71,12 +71,10 @@ void main() {
             case 3:
                 display();
                 break;
+            case 4:
+                printf("Exiting the program");
+                return;
+            default: 
+                printf("Invalid choice");
         }
-        if(s==4){
-            printf("Exiting...");
-            break;
-        }else if(s > 4){
-            printf("Invalid Choice");
-        }
-    }
 }
