@@ -1,4 +1,4 @@
-package com.vaishakh.lab.abstract_classes;
+package com.vaishakh.lab;
 
 public class Abstract {
     abstract class shape{
@@ -20,3 +20,16 @@ public class Abstract {
         }
     }
 }
+
+class main {
+    public static void main(String[] args) {
+        Abstract ab = new Abstract();
+        Abstract.shape rcc = ab.new rectangle();
+        Abstract.shape tri = ab.new triangle();
+        Abstract.shape hex = ab.new hexagon();
+        rcc.no_of_sides();
+        tri.no_of_sides();
+        hex.no_of_sides();
+    }
+}
+
