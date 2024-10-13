@@ -1,6 +1,23 @@
-package com.vaishakh.lab.coustomer_exception;
+package com.vaishakh.lab;
 
 import java.util.Scanner;
+class insufficient_fundsException extends Exception{
+    public insufficient_fundsException(){
+        super();
+    }
+    public insufficient_fundsException(String messages){
+        super(messages);
+    }
+}
+
+class invalid_AmmoutException extends Exception{
+    public invalid_AmmoutException() {
+        super();
+    }
+    public invalid_AmmoutException(String message){
+        super(message);
+    }
+}
 
 public class Custom_Exception {
     public void accounts(int n, String[] Names, int[] accNumber, int[] amount)
