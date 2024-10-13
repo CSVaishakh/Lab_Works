@@ -59,5 +59,6 @@
   "C_Cpp.errorSquiggles": "disabled",
   "files.associations": {
     "12_stacks-ll": "cpp"
-  }
+  },
+  "files.autoSave": "afterDelay"
 }
