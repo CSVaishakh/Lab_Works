@@ -7,7 +7,7 @@ interface Pet {
 }
 class Animal {
     private String name;
-    protected int legs;
+    private int legs;
     Animal(int legs) {
         this.legs = legs;
     }
