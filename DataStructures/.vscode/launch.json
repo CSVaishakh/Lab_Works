@@ -9,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": false,
       "cwd": "/home/vaishakh/Developemnt/Lab_Works/DataStructures",
-      "program": "/home/vaishakh/Developemnt/Lab_Works/DataStructures/build/Debug/outDebug",
+      "program": "/home/vaishakh/Developemnt/Lab_Works/DataStructures/out",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

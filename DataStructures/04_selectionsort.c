@@ -2,7 +2,7 @@
 void main(){
     int n,i,j,temp,min,space=0,time=0;
     space+=7*4;
-    printf("Enter the no.of elements in the lsit to be sorted");
+    printf("Enter the no.of elements in the list to be sorted");
     scanf("%d",&n);
     time+=2;
     int a[n];

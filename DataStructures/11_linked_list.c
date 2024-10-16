@@ -135,7 +135,7 @@ void delAny_Pos(){
     printf("Node deleted\nStatus : ");
     display();
 }
-int main() {
+void main() {
     int s = 0;
     while(true) {
         // Main menu for insertion, deletion, and display operations
@@ -182,13 +182,11 @@ int main() {
             case 3:
                 display();  // Display the list
                 break;
-        }
-        if(s==4){
-            printf("Exiting...");
-            break;
-        }else if(s > 4){
-            printf("Invalid Choice");
-        }
+            case 4:
+                printf("Exiting....");
+                return;
+            case 5:
+                printf("inavalid choice");
+        }   
     }
-    return 0;
 }
