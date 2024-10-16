@@ -1,11 +1,11 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
-#define Max_Size 5
-int queue[Max_Size],front = -1,rear = -1;
-// function to check if the queue is full
-bool isFull(){
-    if(rear == Max_Size-1){
+#define Max_Size 3            
+int queue[Max_Size];
+int front =-1, rear = -1;bool isFull(){
+    if((rear+1)%Max_Size==front){
         return true;
     }
 	return false;
@@ -17,68 +17,64 @@ bool isEmpty(){
     }
     return false;
 }
-// function to add an element to the queue from the front
 void enqueue_front(int item){
     if(isFull()){
         printf("Queue is full");
-        return;
     }else if(isEmpty()){
         front = rear = 0;
+        queue[front]=item;
+    
+    }else{
+        front = (front+1)%Max_Size;
         queue[front] = item;
-        return;
     }
-    rear++;
-    queue[front]=item;
-    printf("Element succesfully added to the queue");
 }
-// function to add an element to the queue from the rear
 void enqueue_rear(int item){
     if(isFull()){
         printf("Queue is full");
-        return;
     }else if(isEmpty()){
         front = rear = 0;
+        queue[rear]=item;
+    
+    }else{
+        rear = (rear+1)%Max_Size;
         queue[rear] = item;
-        return;
     }
-    rear++;
-    queue[rear]=item;
-    printf("Element succesfully added to the queue");
 }
-// function to dequeue an element from the queue
 void dequeue_front(){
-    if(isEmpty()){
+    if (isEmpty()){
         printf("Queue is empty");
+    }else if(front == rear){
+        printf("The item removed from the queue is %d",queue[front]);
+        front = rear = -1;
     }else{
-        printf("Element removed from the queue is %d",queue[front]);
-        if(front==rear){
-            front = rear = -1;
-        }else{
-            front++;
-        }
+        printf("The item removed from the queue is %d",queue[front]);
+        front = (front+1)%Max_Size ;
     }
 }
-// function to dequeue an element from the queue from the rear
 void dequeue_rear(){
-    if(isEmpty()){
+    if (isEmpty()){
         printf("Queue is empty");
+    }else if(front == rear){
+        printf("The item removed from the queue is %d",queue[rear]);
+        front = rear = -1;
     }else{
-        printf("Element removed from the queue is %d",queue[rear]);
-        if(front==rear){
-            front = rear = -1;
-        }else{
-            rear--;
-        }
+        printf("The item removed from the queue is %d",queue[rear]);
+        rear = (rear+1)%Max_Size ;
     }
 }
-// function to print the queue
-void display(){
-    if(isEmpty()){
-        printf("Queue is empty");
-    }else{
-        for(int i=front;i<=rear;i++){
-            printf("%d ",queue[i]);
+void display() {
+    if (isEmpty()) {
+        printf("Queue is empty\n");
+    } else {
+        printf("Elements in the queue: ");
+        int i = front;
+        while (true) {
+            printf("%d ", queue[i]);
+            if (i == rear) break; // Stop when we reach the rear element
+            i = (i + 1) % Max_Size; // Move to the next index in circular manner
         }
+        printf("\n");
     }
 }
 // main function 
