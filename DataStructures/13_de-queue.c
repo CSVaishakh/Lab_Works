@@ -4,7 +4,8 @@
 #include<stdbool.h>
 #define Max_Size 3            
 int queue[Max_Size];
-int front =-1, rear = -1;bool isFull(){
+int front =-1, rear = -1;
+bool isFull(){
     if((rear+1)%Max_Size==front){
         return true;
     }
