@@ -18,8 +18,7 @@ void enqueue_front(int x) {
     if (isFull()) { // Check if the deque is full
         printf("Deque is full, cannot insert %d\n", x);
         return;
-    }
-    if (isEmpty()) { // If deque is empty, initialize front and rear to 0
+    }else if (isEmpty()) { // If deque is empty, initialize front and rear to 0
         front = rear = 0;
     } else {
         front = (front - 1 + Max_Size) % Max_Size; // Move front backward circularly
@@ -87,7 +86,7 @@ int main() { // Use the defined max Max_Size of the deque
     int x, choice;
     // Menu-driven loop to perform deque operations
     do {
-        printf("Double Ended Queues\n1. Insertion at FRONT\n2. Deletion from FRONT\n3. Insertion at REAR\n4. Deletion from REAR\n5. Display elements\n6. Exit\nEnter your choice:\n");
+        printf("Double Ended Queues\n1. Insertion at FRONT\n2. Deletion from FRONT\n3. Insertion at REAR\n4. Deletion from REAR\n5. Display elements\n6. Exit\nEnter your choice:");
         scanf("%d", &choice); // Take user's choice
 
         // Switch case to handle each operation based on user input
