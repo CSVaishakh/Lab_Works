@@ -30,8 +30,7 @@ void enqueue_rear(int x) {
     if (isFull()) { // Check if the deque is full
         printf("Deque is full, cannot insert %d\n", x);
         return;
-    }
-    if (isEmpty()) { // If deque is empty, initialize front and rear to 0
+    } else if (isEmpty()) { // If deque is empty, initialize front and rear to 0
         front = rear = 0;
     } else {
         rear = (rear + 1) % Max_Size; // Move rear forward circularly
@@ -41,11 +40,10 @@ void enqueue_rear(int x) {
 // Function to remove an element from the front of the deque
 void dequeue_front() {
     if (isEmpty()) { // Check if the deque is empty
-        printf("Deque is empty, underflow condition\n");
+        printf("Deque is empty\n");
         return;
     }
-    int x = dq[front]; // Store the element to be deleted
-    printf("%d successfully deleted from front\n", x);
+    printf("%d successfully removed from front\n", dq[front]); // Print the element to be removed
     if (front == rear) { // If deque has only one element, reset front and rear to -1 (empty deque)
         front = rear = -1;
     } else {
@@ -55,11 +53,10 @@ void dequeue_front() {
 // Function to remove an element from the rear of the deque
 void dequeue_rear() {
     if (isEmpty()) { // Check if the deque is empty
-        printf("Deque is empty, underflow condition\n");
+        printf("Deque is empty\n");
         return;
     }
-    int x = dq[rear]; // Store the element to be deleted
-    printf("%d successfully deleted from rear\n", x);
+    printf("%d successfully removed from rear\n", dq[rear]); // Print the element to be removed
     if (front == rear) { // If deque has only one element, reset front and rear to -1 (empty deque)
         front = rear = -1;
     } else {
@@ -86,7 +83,7 @@ int main() { // Use the defined max Max_Size of the deque
     int x, choice;
     // Menu-driven loop to perform deque operations
     do {
-        printf("Double Ended Queues\n1. Insertion at FRONT\n2. Deletion from FRONT\n3. Insertion at REAR\n4. Deletion from REAR\n5. Display elements\n6. Exit\nEnter your choice:");
+        printf("DEQueues\n1. Insertion at FRONT\n2. Deletion from FRONT\n3. Insertion at REAR\n4. Deletion from REAR\n5. Display elements\n6. Exit\nEnter your choice:");
         scanf("%d", &choice); // Take user's choice
 
         // Switch case to handle each operation based on user input
