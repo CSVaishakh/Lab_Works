@@ -19,7 +19,6 @@ int read_item() {
     scanf("%d", &item);
     return item;
 }
-
 // Function to create a new node for the binary tree
 struct node* create_node(int item) {
     struct node* new_node = (struct node *)malloc(sizeof(struct node));
@@ -32,8 +31,7 @@ struct node* create_node(int item) {
     new_node->right = NULL;
     return new_node;
 }
-
-// Function to insert a node into the binary search tree
+// Function to insert a node into the binary tree 
 void insert(int item) {
     struct node* new_node = create_node(item);
     if (root == NULL) {
@@ -41,32 +39,31 @@ void insert(int item) {
         printf("Node %d inserted as root\n", item);
         return;
     }
-    
-    struct node* current = root;
-    struct node* parent = NULL;
-    
-    while (current != NULL) {
-        parent = current;
-        if (item < current->data) {
-            current = current->left;
-        } else if (item > current->data) {
-            current = current->right;
+    struct node* queue[100];
+    int front = 0, rear = 0;  
+    // Enqueue the root node
+    queue[rear++] = root;
+    // Level-order traversal to find the first available position
+    while (front < rear) {
+        struct node* current = queue[front++];  // Dequeue the front element
+        // Check if the left child is available
+        if (current->left == NULL) {
+            current->left = new_node;
+            printf("Node %d inserted on the left of %d\n", item, current->data);
+            break;
         } else {
-            printf("Node with value %d already exists. Duplicates are not allowed.\n", item);
-            free(new_node);
-            return;
+            queue[rear++] = current->left;  // Enqueue the left child
+        }
+        // Check if the right child is available
+        if (current->right == NULL) {
+            current->right = new_node;
+            printf("Node %d inserted on the right of %d\n", item, current->data);
+            break;
+        } else {
+            queue[rear++] = current->right;  // Enqueue the right child
         }
     }
-    
-    if (item < parent->data) {
-        parent->left = new_node;
-        printf("Node %d inserted on the left of %d\n", item, parent->data);
-    } else {
-        parent->right = new_node;
-        printf("Node %d inserted on the right of %d\n", item, parent->data);
-    }
 }
-
 // Function to perform in-order traversal of the binary tree
 void inorder(struct node* node) {
     if (node == NULL) return;
@@ -90,25 +87,11 @@ void postorder(struct node* node) {
     postorder(node->right);
     printf("%d ", node->data);
 }
-
-// Function to display the tree structure
-void display_tree(struct node* node, int level) {
-    if (node == NULL) return;
-
-    display_tree(node->right, level + 1);
-
-    for (int i = 0; i < level; i++) printf(" ");
-    printf("%d\n", node->data);
-
-    display_tree(node->left, level + 1);
-}
-
 // Main function
 int main() {
     int choice = 0;
     while(true) {
-        printf("\n1: Insert\n2: In-order Traversal\n3: Pre-order Traversal\n");
-        printf("4: Post-order Traversal\n5: Display Tree Structure\n6: Exit\nChoice: ");
+        printf("\n1: Insert\n2: In-order Traversal\n3: Pre-order Traversal\n4: Post-order Traversal\n5: Exit\nChoice: ");
         scanf("%d", &choice);
         switch (choice) {
             case 1:
@@ -130,10 +113,6 @@ int main() {
                 printf("\n");
                 break;
             case 5:
-                printf("Tree structure:\n");
-                display_tree(root, 0);
-                break;
-            case 6:
                 printf("Exiting the program\n");
                 exit(0);
             default: 
