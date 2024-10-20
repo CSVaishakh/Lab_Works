@@ -20,9 +20,8 @@ class Animal {
 }
 class Dog extends Animal implements Pet {
     private String name;
-    Dog(int legs, String name) {
+    Dog(int legs) {
         super(legs);
-        this.name = name;
     }
     public String getName() {
         return name;
@@ -40,7 +39,8 @@ class Dog extends Animal implements Pet {
 }
 class I_main {
     public static void main(String[] args) {
-        Dog myDog = new Dog(4, "Buddy");
+        Dog myDog = new Dog(4);
+        myDog.setName("Buddy");
         myDog.walk();
         myDog.eat();
         myDog.play();
