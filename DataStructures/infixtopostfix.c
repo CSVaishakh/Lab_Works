@@ -126,7 +126,7 @@ void infixTopostfix(char infixexprsn[size],char postexprsnrsn[size]){
 int main(){
 
 printf("\nEnter Infix expression : ");
-gets(iexprsn); //Reads the expression
+fgets(iexprsn, size, stdin); //Reads the expression
 
 infixTopostfix(iexprsn, pexprsn); //Calling InfixToPostfix function for conversion
 

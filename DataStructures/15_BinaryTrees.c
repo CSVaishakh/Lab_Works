@@ -11,7 +11,7 @@ struct node {
 
 // Global pointer to the root of the tree
 struct node* root = NULL;
-
+                                                                                                                                                                                                                                                                                                                                             
 // Function to read an integer from the user
 int read_item() {
     int item;
