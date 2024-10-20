@@ -1,17 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
 // Structure for a node in the binary tree
 struct node {
     int data;
     struct node *left;  // Pointer to the left child
     struct node *right; // Pointer to the right child
 };
-
 // Global pointer to the root of the tree
 struct node* root = NULL;
-                                                                                                                                                                                                                                                                                                                                             
 // Function to read an integer from the user
 int read_item() {
     int item;
@@ -71,7 +68,6 @@ void inorder(struct node* node) {
     printf("%d ", node->data);
     inorder(node->right);
 }
-
 // Function to perform pre-order traversal of the binary tree
 void preorder(struct node* node) {
     if (node == NULL) return;
@@ -79,7 +75,6 @@ void preorder(struct node* node) {
     preorder(node->left);
     preorder(node->right);
 }
-
 // Function to perform post-order traversal of the binary tree
 void postorder(struct node* node) {
     if (node == NULL) return;
@@ -91,7 +86,7 @@ void postorder(struct node* node) {
 int main() {
     int choice = 0;
     while(true) {
-        printf("\n1: Insert\n2: In-order Traversal\n3: Pre-order Traversal\n4: Post-order Traversal\n5: Exit\nChoice: ");
+        printf("\n1: Insert\n2: In-order Traversal\n3: Pre-order Traversal\n4: Post-order Traversal\n5: Exit\nEnter your choice: ");
         scanf("%d", &choice);
         switch (choice) {
             case 1:

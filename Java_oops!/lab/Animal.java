@@ -38,7 +38,7 @@ class Dog extends Animal implements Pet {
         System.out.println("Dogs eat meat and veggies");
     }
 }
-class Main {
+class A_main {
     public static void main(String[] args) {
         Dog myDog = new Dog(4, "Buddy");
         myDog.walk();

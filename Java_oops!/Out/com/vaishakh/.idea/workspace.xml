@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47138eb4-d536-4d7d-8734-c394d5e146be" name="Changes" comment="commit and push" />
+    <list default="true" id="47138eb4-d536-4d7d-8734-c394d5e146be" name="Changes" comment="commit and push">
+      <change beforePath="$PROJECT_DIR$/../DataStructures/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataStructures/15_BinaryTrees.c" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/15_BinaryTrees.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab/Polymorphism.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/Polymorphism.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab/basic/method_overloading.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/method_overloading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab/emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab/inheritance.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +62,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/vaishakh/Developemnt/Lab_Works/Java_oops!&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/vaishakh/Development/Rough/Java&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -83,6 +90,9 @@
       <workItem from="1728842934987" duration="277000" />
       <workItem from="1728894271504" duration="6870000" />
       <workItem from="1729003326681" duration="86000" />
+      <workItem from="1729008147738" duration="597000" />
+      <workItem from="1729267620988" duration="15000" />
+      <workItem from="1729413991847" duration="961000" />
     </task>
     <task id="LOCAL-00001" summary="commit and push">
       <option name="closed" value="true" />

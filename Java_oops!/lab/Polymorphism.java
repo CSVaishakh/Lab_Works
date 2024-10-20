@@ -21,7 +21,7 @@ public class Polymorphism {
     }
 }
 
-class main {
+class P_main {
     public static void main(String[] args) {
         Polymorphism ab = new Polymorphism();
         Polymorphism.shape rcc = ab.new rectangle();
