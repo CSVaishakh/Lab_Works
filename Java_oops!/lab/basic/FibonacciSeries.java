@@ -1,7 +1,7 @@
 package com.vaishakh.lab.basic;
 
 import java.util.Scanner;
-public class fib {
+public class FibonacciSeries {
     public static void main(String[] args) {
         int i;
         int t1=0;

@@ -2,7 +2,7 @@ package com.vaishakh.lab.basic;
 
 import java.util.Scanner;
 
-public class calc {
+public class Calculator {
     public static Scanner in = new Scanner(System.in);
     public static int add(int a, int b) {
         int sum;

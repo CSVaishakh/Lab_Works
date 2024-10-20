@@ -2,7 +2,7 @@ package com.vaishakh.lab.basic;
 
 import java.util.Scanner;
 
-public class mat_multiplication{
+public class MatrixMultiplication {
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         int row1,col1,row2,col2,i,j,k;

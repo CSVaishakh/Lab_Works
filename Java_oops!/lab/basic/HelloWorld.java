@@ -1,6 +1,6 @@
 package com.vaishakh.lab.basic;
 
-public class hw {
+public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello World");
     }
