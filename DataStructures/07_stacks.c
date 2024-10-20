@@ -9,7 +9,7 @@ bool isFull(){
     if (top == Max_Size-1){
         return true;
     }
-    return true;
+    return false;
 }
 //isEmpty function
 bool isEmpty(){
@@ -45,8 +45,7 @@ void pop(){
 }
 //peek function
 void display(){
-    int i = top;
-    for(;i > -1,i--){
+    for(int i = top;i > -1;i--){
         printf(" %d ",stk[i]);
     }
 }
@@ -55,7 +54,7 @@ void main(){
     int ch;
     while(true){
         printf("\n   *****STACK OPERATIONS*****   \n");
-        printf("1.PUSH\n2.POP\n3.DISPLAY\n.EXIT\n");
+        printf("1.Insertion\n2.Deletion\n3.DISPLAY\n4.EXIT\n");
         printf("Enter your choice : ");
         scanf("%d",&ch);
         printf("\n"); 

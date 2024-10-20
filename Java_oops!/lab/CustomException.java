@@ -9,7 +9,6 @@ class insufficient_fundsException extends Exception{
         super(messages);
     }
 }
-
 class invalid_AmmoutException extends Exception{
     public invalid_AmmoutException() {
         super();
@@ -18,7 +17,6 @@ class invalid_AmmoutException extends Exception{
         super(message);
     }
 }
-
 class Custom_Exception {
     public void accounts(int n, String[] Names, int[] accNumber, int[] amount)
     {
@@ -59,7 +57,6 @@ class Custom_Exception {
             System.out.println("Account not found");
         }
     }
-
     public void deposit(int n, int[] accNumber, int[] amount){
         int acno, flag = 0, pos = 0, balance;
         Scanner scan = new Scanner(System.in);
@@ -139,14 +136,12 @@ class Custom_Exception {
         System.out.print("Enter No. of Customers: ");
         n = scan.nextInt();
         e.accounts(n, Names, accNumber, amount);
-
         System.out.println("Banking System");
         System.out.println("1. Display All Accounts");
         System.out.println("2. Search Account");
         System.out.println("3. Deposit Amount");
         System.out.println("4. Withdraw Amount");
         System.out.println("5. Exit");
-
         while(flag ==1){
             System.out.println("Enter Choice: ");
             ch = scan.nextInt();

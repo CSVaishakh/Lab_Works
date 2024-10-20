@@ -3,21 +3,21 @@ package com.vaishakh.lab;
 import java.util.Scanner;
 
 class age_verify {
-        void vote(int age) throws IllegalAccessException {
-            try {
-                if (age<18) {
-                    throw new IllegalAccessException("You must be at least 18 years to vote");
-                }
-                else{
-                    System.out.println("You can vote!");
-
-                }
-            } catch (Exception e){
-                System.out.println("Exception Occurred: "+e);
-            } finally {
-                System.out.println("Finally age verification done");
+    void vote(int age) {
+        try {
+            if (age<18) {
+                throw new IllegalAccessException("You must be at least 18 years to vote");
             }
+            else{
+                System.out.println("You can vote!");
+
+            }
+        } catch (Exception e){
+            System.out.println("Exception Occurred: "+e);
+        } finally {
+            System.out.println("Finally age verification done");
         }
+    }
 }
 
 class try_catch {

@@ -21,6 +21,7 @@ bool isEmpty(){
 void enqueue(int item){
     if(isFull()){
         printf("Queue is full,OVERFLOW");
+        return;
     }else if(isEmpty()){
         front = rear = 0;
         queue[rear]=item;
@@ -29,6 +30,7 @@ void enqueue(int item){
         rear = (rear+1)%Max_Size;
         queue[rear] = item;
     }
+    printf("Element successfully added to the queue");
 }
 
 void dequeue(){

@@ -20,7 +20,7 @@ bool isEmpty(){
 // function to add an element to the queue
 void enqueue(int item){
     if(isFull()){
-        printf("Queue is full");
+        printf("Queue is full,OVERFLOW");
         return;
     }else if(isEmpty()){
         front = rear = 0;
@@ -34,7 +34,7 @@ void enqueue(int item){
 // function to dequeue an element from the queue
 void dequeue(){
     if(isEmpty()){
-        printf("Queue is empty");
+        printf("Queue is empty,UNDERFLOW");
     }else{
         printf("Element removed from the queue is %d",queue[front]);
         if(front==rear){
