@@ -1,4 +1,4 @@
-package com.vaishakh.lab.basic;
+package com.vaishakh.Basic;
 
 public class HelloWorld {
     public static void main(String[] args) {
