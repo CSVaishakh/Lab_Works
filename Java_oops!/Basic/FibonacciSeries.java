@@ -1,4 +1,4 @@
-package com.vaishakh.lab;
+package com.vaishakh.Basic;
 
 import java.util.Scanner;
 public class FibonacciSeries {
