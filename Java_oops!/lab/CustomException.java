@@ -19,7 +19,7 @@ class invalid_AmmoutException extends Exception{
     }
 }
 
-public class Custom_Exception {
+class Custom_Exception {
     public void accounts(int n, String[] Names, int[] accNumber, int[] amount)
     {
         Scanner scan = new Scanner(System.in);
@@ -77,14 +77,14 @@ public class Custom_Exception {
             balance = scan.nextInt();
             try{
                 if (balance <= 0){
-                    throw new invalid_AmmoutException("invalid amount");
+                    throw new invalid_AmmoutException();
                 }
                 else{
                     amount[pos] = amount[pos] + balance;
                 }
             }
             catch(invalid_AmmoutException e){
-                System.out.println(e);
+            System.out.println("Invalid Amount");
             }
         }
         else{
@@ -92,7 +92,7 @@ public class Custom_Exception {
         }
     }
     public void withdraw(int n, int[] accNumber, int[] amount){
-        int acno, flag =0, pos = 0, withdraw;
+        int acno, flag =0, withdraw;
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter Account Number: ");
         acno = scan.nextInt();
@@ -103,23 +103,23 @@ public class Custom_Exception {
                 withdraw = scan.nextInt();
                 try{
                     if(withdraw <= 0){
-                        throw new invalid_AmmoutException("invalid amomunt");
+                        throw new invalid_AmmoutException();
                     }
                     else if(withdraw>amount[i]){
-                        throw new insufficient_fundsException("insufficient");
+                        throw new insufficient_fundsException();
                     }
                     else {
                         amount[i] -= withdraw;
-                        System.out.println("Withdeaw Successfully!");
+                        System.out.println("Withdraw Successfully!");
 
                     }
                 }
-                catch(invalid_AmmoutException e ){
-                    System.out.println(e);
+                catch(invalid_AmmoutException exception){
+                    System.out.println("Invalid Amount Exception");
 
                 }
-                catch(insufficient_fundsException e){
-                    System.out.println(e);
+                catch(insufficient_fundsException exception){
+                    System.out.println("insufficient Funds Exception");
                 }
                 break;
 
@@ -130,7 +130,7 @@ public class Custom_Exception {
         }
     }
     public static void main(String[] args) {
-        int n = 0, flag = 1, ch;
+        int n, flag = 1, ch;
         int[] accNumber = new int[25];
         int[] amount = new int[25];
         String[] Names = new String[25];

@@ -2,7 +2,7 @@ package com.vaishakh.lab;
 
 import java.util.Scanner;
 
-public class age_verify {
+class age_verify {
         void vote(int age) throws IllegalAccessException {
             try {
                 if (age<18) {

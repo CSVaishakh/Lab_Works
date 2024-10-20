@@ -2,7 +2,7 @@ package com.vaishakh.lab;
 
 import java.util.Scanner;
 
-public class    method_overloading {
+public class MethodOverloading {
     public static class methods{
         int calc_area(int l, int b){
             return l*b;
