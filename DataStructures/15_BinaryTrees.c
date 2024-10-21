@@ -29,11 +29,11 @@ struct node* create_node(int item) {
     return new_node;
 }
 // Function to insert a node into the binary tree 
-void insert(int item) {
-    struct node* new_node = create_node(item);
+void insert() {
+    struct node* new_node = create_node(read_item());
     if (root == NULL) {
         root = new_node;
-        printf("Node %d inserted as root\n", item);
+        printf("Node %d inserted as root\n", new_node->data);
         return;
     }
     struct node* queue[100];
@@ -46,7 +46,7 @@ void insert(int item) {
         // Check if the left child is available
         if (current->left == NULL) {
             current->left = new_node;
-            printf("Node %d inserted on the left of %d\n", item, current->data);
+            printf("Node %d inserted on the left of %d\n", new_node->data, current->data);
             break;
         } else {
             queue[rear++] = current->left;  // Enqueue the left child
@@ -54,7 +54,7 @@ void insert(int item) {
         // Check if the right child is available
         if (current->right == NULL) {
             current->right = new_node;
-            printf("Node %d inserted on the right of %d\n", item, current->data);
+            printf("Node %d inserted on the right of %d\n", new_node->data, current->data);
             break;
         } else {
             queue[rear++] = current->right;  // Enqueue the right child
@@ -90,7 +90,7 @@ int main() {
         scanf("%d", &choice);
         switch (choice) {
             case 1:
-                insert(read_item());
+                insert();
                 break;
             case 2:
                 printf("In-order traversal: ");
