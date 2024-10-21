@@ -5,21 +5,14 @@ class insufficient_fundsException extends Exception{
     public insufficient_fundsException(){
         super();
     }
-    public insufficient_fundsException(String messages){
-        super(messages);
-    }
 }
 class invalid_AmmoutException extends Exception{
     public invalid_AmmoutException() {
         super();
     }
-    public invalid_AmmoutException(String message){
-        super(message);
-    }
 }
 class Custom_Exception {
-    public void accounts(int n, String[] Names, int[] accNumber, int[] amount)
-    {
+    public void accounts(int n, String[] Names, int[] accNumber, int[] amount) {
         Scanner scan = new Scanner(System.in);
 
         for (int i =0; i< n; i++){
@@ -39,18 +32,19 @@ class Custom_Exception {
         }
     }
     public void search(int n, String[] Names, int[] accNumber, int[] amount){
-        int acno, flag =0, pos = 0;
+        int acno, pos = 0;
+        boolean flag = false;
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter Account Number: ");
         acno = scan.nextInt();
         for(int i =0; i<n; i++){
             if(accNumber[i] == acno){
-                flag = 1;
+                flag = true;
                 pos = i;
                 break;
             }
         }
-        if(flag == 1){
+        if(flag){
             System.out.print("Account Name: " + Names[pos] + "-> Account Number: " + accNumber[pos] + "-> Account Balance: "+ amount[pos] + "\n");
         }
         else{
@@ -58,18 +52,19 @@ class Custom_Exception {
         }
     }
     public void deposit(int n, int[] accNumber, int[] amount){
-        int acno, flag = 0, pos = 0, balance;
+        int acno, pos = 0, balance;
+        boolean flag = false;
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter Account Number: ");
         acno =  scan.nextInt();
         for(int i =0; i<n; i++){
             if(accNumber[i]== acno){
-                flag = 1;
-                pos = 1;
+                flag = true;
+                pos = i;
                 break;
             }
         }
-        if(flag == 1){
+        if(flag){
             System.out.print("Enter amount to be deposited: ");
             balance = scan.nextInt();
             try{
@@ -77,7 +72,7 @@ class Custom_Exception {
                     throw new invalid_AmmoutException();
                 }
                 else{
-                    amount[pos] = amount[pos] + balance;
+                    amount[pos] += balance;
                 }
             }
             catch(invalid_AmmoutException e){
@@ -89,13 +84,14 @@ class Custom_Exception {
         }
     }
     public void withdraw(int n, int[] accNumber, int[] amount){
-        int acno, flag =0, withdraw;
+        int acno, withdraw;
+        boolean flag = true;
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter Account Number: ");
         acno = scan.nextInt();
         for(int i = 0; i<n;i++){
             if(accNumber[i] == acno){
-                flag = 1;
+                flag = false;
                 System.out.print("Enter amount to be Withdrawn");
                 withdraw = scan.nextInt();
                 try{
@@ -107,22 +103,20 @@ class Custom_Exception {
                     }
                     else {
                         amount[i] -= withdraw;
-                        System.out.println("Withdraw Successfully!");
-
+                        System.out.println("Withdraw Successful!");
                     }
                 }
                 catch(invalid_AmmoutException exception){
-                    System.out.println("Invalid Amount Exception");
+                    System.out.println("Invalid Amount");
 
                 }
                 catch(insufficient_fundsException exception){
-                    System.out.println("insufficient Funds Exception");
+                    System.out.println("insufficient Funds ");
                 }
                 break;
-
             }
         }
-        if (flag == 0){
+        if (flag){
             System.out.println("Account not Found");
         }
     }
@@ -136,12 +130,7 @@ class Custom_Exception {
         System.out.print("Enter No. of Customers: ");
         n = scan.nextInt();
         e.accounts(n, Names, accNumber, amount);
-        System.out.println("Banking System");
-        System.out.println("1. Display All Accounts");
-        System.out.println("2. Search Account");
-        System.out.println("3. Deposit Amount");
-        System.out.println("4. Withdraw Amount");
-        System.out.println("5. Exit");
+        System.out.println("Banking System\n1.Display All Accounts\n2.Search Account\n3.Deposit Amount\n4.Withdraw Amount\n5.Exit");
         while(flag ==1){
             System.out.println("Enter Choice: ");
             ch = scan.nextInt();
@@ -159,6 +148,7 @@ class Custom_Exception {
                     e.withdraw(n, accNumber, amount);
                     break;
                 case 5:
+                    System.out.println("Exiting");
                     flag = 0;
                     break;
                 default:
