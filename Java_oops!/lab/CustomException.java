@@ -1,5 +1,3 @@
-package com.vaishakh.lab;
-
 import java.util.Scanner;
 class insufficient_fundsException extends Exception{
     public insufficient_fundsException(){

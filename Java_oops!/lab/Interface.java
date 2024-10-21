@@ -1,4 +1,4 @@
-package com.vaishakh.lab;
+
 
 interface Pet {
     void setName(String name);

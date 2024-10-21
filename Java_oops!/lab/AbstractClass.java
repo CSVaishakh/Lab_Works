@@ -1,5 +1,3 @@
-package com.vaishakh.lab;
-
 abstract class Shape {
     abstract void printArea(double... sides);
 }
