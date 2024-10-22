@@ -29,5 +29,6 @@ class try_catch {
         age_verify av = new age_verify();
         av.vote(age);
         System.out.println("Verification completed successfully");
+        sc.close();
     }
 }

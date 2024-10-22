@@ -63,5 +63,6 @@ public class MatrixMultiplication {
             }
             System.out.println();
         }
+        in.close();
     }
 }

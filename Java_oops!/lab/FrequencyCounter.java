@@ -20,5 +20,6 @@ public class FrequencyCounter {
         }
         System.out.println();
         System.out.println(ch+" repeats "+count+" times");
+        in.close();
     }
 }

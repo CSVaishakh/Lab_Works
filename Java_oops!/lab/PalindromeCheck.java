@@ -21,5 +21,6 @@ public class PalindromeCheck {
             return;
         }
         System.out.println("The word is not a palindrome");
+        in.close();
     }
 }
