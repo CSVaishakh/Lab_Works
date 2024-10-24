@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 int main(){
   int array[10], limit, i, j, temp, flag = 0;
