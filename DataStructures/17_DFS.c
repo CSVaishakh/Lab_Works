@@ -57,9 +57,7 @@ void dfs(int graph[MAX][MAX], int start, int visited[], int n) {
     freeStack(&s); // Free the stack memory
 }
 int main() {
-    int n; // Number of vertices
-    int graph[MAX][MAX]; // Adjacency matrix to represent the graph
-    int visited[MAX] = {0}; // Array to track visited vertices
+    int n, graph[MAX][MAX], visited[MAX] = {0}; // Array to track visited vertices
     // Input the number of vertices
     printf("Enter the number of vertices: ");
     scanf("%d", &n);
@@ -67,23 +65,13 @@ int main() {
     printf("Enter the adjacency matrix (0 and 1 only):\n");
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            int input;
-            scanf("%d", &input);
-            if (input != 0 && input != 1) {
-                printf("Invalid input! Only 0 and 1 are allowed.\n");
-                return 1;
-            }
-            graph[i][j] = input;
+            scanf("%d", &graph[i][j]);
         }
     }
     int startVertex;
     // Input the starting vertex for DFS
     printf("Enter the starting vertex (0 to %d): ", n - 1);
     scanf("%d", &startVertex);
-    if (startVertex < 0 || startVertex >= n) {
-        printf("Invalid starting vertex.\n");
-        return 1;
-    }
     // Perform DFS traversal starting from the specified vertex
     printf("DFS traversal starting from vertex %d:\n", startVertex);
     dfs(graph, startVertex, visited, n);
