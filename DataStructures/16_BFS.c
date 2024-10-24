@@ -22,9 +22,7 @@ void enqueue(Queue* q, int value) {
         printf("Queue is full\n");
         return;
     }
-    if (isEmpty(q)) { // If queue is initially empty, set front to 0
-        q->front = 0;
-    }
+    if (isEmpty(q)) q->front = 0;
     q->rear++; // Increment rear and add the value
     q->items[q->rear] = value;
 }
@@ -62,9 +60,7 @@ void bfs(int graph[MAX][MAX], int start, int visited[], int n) {
     }
 }
 int main() {
-    int n; // Number of vertices
-    int graph[MAX][MAX]; // Adjacency matrix to represent the graph
-    int visited[MAX] = {0}; // Array to track visited vertices, initialized to 0 (unvisited)
+    int n , graph[MAX][MAX], visited[MAX] = {0}; // Array to track visited vertices, initialized to 0 (unvisited)
     // Input the number of vertices
     printf("Enter the number of vertices: ");
     scanf("%d", &n);
