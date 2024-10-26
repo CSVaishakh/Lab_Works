@@ -1,7 +1,5 @@
-package com.vaishakh.lab;
 
 import java.io.*;
-
 class FileCopy{
     public static void main(String[] args){
         FileInputStream f1 = null;
