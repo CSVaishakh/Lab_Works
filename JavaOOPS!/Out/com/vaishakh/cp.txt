@@ -1,1 +1,2 @@
-Hello SJCET
+Hello SJCET 
+File related exception is handeled
