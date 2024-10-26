@@ -4,7 +4,7 @@ int main(){
   printf("INSERTION SORT\n");
   printf("Enter limit: ");
   scanf("%d", &limit);
-  printf("Enter %d integers: ", limit);
+  printf("Enter the elements : ");
   for(i = 0; i < limit; i++) scanf("%d", &array[i]);
   for(i = 1; i <= (limit - 1); i++) {
     temp = array[i];
@@ -18,6 +18,6 @@ int main(){
     if(flag) array[j+1] = temp;
   }
   printf("Sorted list: ");
-  for (i = 0; i <= (limit - 1); i++) printf("%d  ", array[i]);
+  for (i = 0; i < limit; i++) printf("%d  ", array[i]);
   return 0;
 }
