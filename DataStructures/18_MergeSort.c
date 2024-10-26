@@ -2,9 +2,9 @@
 void Merge(int a[], int k, int m, int k1, int m1){
     int temp[50], i = k, j = k1, n = 0; 
     while(i <= m && j <= m1){
-    if(a[i] < a[j]) temp[n++] = a[i++];
-    else temp[n++] = a[j++];
-    }
+        if(a[i] < a[j]) temp[n++] = a[i++];
+        else temp[n++] = a[j++];
+        }
     while(i <= m) temp[n++] = a[i++];
     while(j <= m1) temp[n++] = a[j++];
     for(i = k, j = 0; i <= m1; i++, j++) a[i] = temp[j];
@@ -12,10 +12,10 @@ void Merge(int a[], int k, int m, int k1, int m1){
 void MergeSort(int a[], int i, int j){
     int mid;
     if(i < j){
-    mid = (i + j) / 2;
-    MergeSort(a, i, mid);
-    MergeSort(a, mid + 1, j);
-    Merge(a, i, mid, mid + 1, j);
+        mid = (i + j) / 2;
+        MergeSort(a, i, mid);
+        MergeSort(a, mid + 1, j);
+        Merge(a, i, mid, mid + 1, j);
     }
 }
 int main(){
