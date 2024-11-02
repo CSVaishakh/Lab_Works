@@ -10,7 +10,7 @@ void heapify(int a[], int n, int i){
         a[i] = a[largest];  
         a[largest] = temp;    
         heapify(a, n, largest);  
-    }  
+    }   
 }  
 void heapSort(int a[], int n){  
     for (int i = n / 2 - 1; i >= 0; i--)  heapify(a, n, i);  

@@ -4,10 +4,8 @@
 #include <string.h>
 #include <ctype.h>
 #include <math.h>
-
 #define Size 100
 #define Stack_Size 30
-
 int top = -1;
 char stk[Stack_Size];
 char iexprsn[Size], pexprsn[Size];
@@ -20,7 +18,6 @@ void push(char item) {
     }
     stk[++top] = item;
 }
-
 char pop() {
     if (isEmpty()) { 
         printf("Stack underflow\n"); 
@@ -28,7 +25,6 @@ char pop() {
     }
     return stk[top--];
 }
-
 bool isOperator(char ch) { return ch == '^' || ch == '*' || ch == '/' || ch == '+' || ch == '-'; }
 int precedence(char op) {
     switch (op) {
@@ -38,7 +34,6 @@ int precedence(char op) {
         default: return 0;
     }
 }
-
 void infixToPostfix(const char* infix, char* postfix) {
     int j = 0;
     push('('); 
