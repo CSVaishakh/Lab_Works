@@ -25,7 +25,7 @@ class RandomThread extends Thread {
     RandomThread() {
         super("Randomthread");
         start();
-    }  
+    } 
     public void run() {
         Random r = new Random();
         try {
