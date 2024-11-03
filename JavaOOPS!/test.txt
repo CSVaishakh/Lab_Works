@@ -1,2 +1,3 @@
-Hello SJCET 
-File related exception is handeled
+Hello Sjcet
+This is a program fir file handlking
+Stop

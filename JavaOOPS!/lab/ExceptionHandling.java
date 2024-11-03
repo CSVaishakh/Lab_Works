@@ -1,7 +1,6 @@
 
 
 import java.util.Scanner;
-
 class age_verify {
     void vote(int age) {
         try {
@@ -10,7 +9,6 @@ class age_verify {
             }
             else{
                 System.out.println("You can vote!");
-
             }
         } catch (Exception e){
             System.out.println("Exception Occurred: "+e);
@@ -19,7 +17,6 @@ class age_verify {
         }
     }
 }
-
 class try_catch {
     public static void main(String[] args) throws IllegalAccessException {
         Scanner sc = new Scanner(System.in);

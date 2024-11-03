@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 class employee {
     static  int Base_Sal;
     static int TA;
@@ -18,7 +17,6 @@ class employee {
         System.out.println("Total salary of the employee is "+Gross_Sal);
     }
 }
-
 class engineer extends employee {
     public engineer(int base_Sal, int TA, int DA) {
         super(base_Sal, TA, DA);

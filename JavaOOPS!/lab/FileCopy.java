@@ -17,7 +17,6 @@ class FileCopy{
         } catch (FileNotFoundException e){
             System.out.println("file not found");
             return;
-
         }catch (IOException e){
             System.out.println("error reading or writing file : "+ e.getMessage ());
         }finally{
