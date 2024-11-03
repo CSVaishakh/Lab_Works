@@ -2,9 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #define Max_Size 3  // Set max size to 3
-
 int dq[Max_Size], front = -1, rear = -1; // Initialize deque array and pointers for front and rear
-
 // Function to check if the deque is full
 bool isFull() {
     return (front == (rear + 1) % Max_Size); // Deque is full when front is just before rear (circular condition)
@@ -114,6 +112,5 @@ int main() { // Use the defined max Max_Size of the deque
                 printf("Invalid choice, please try again.\n"); // Handle invalid input
         }
     } while (true); // Continue until the user chooses to exit
-
     return 0; // Program ends
 }
