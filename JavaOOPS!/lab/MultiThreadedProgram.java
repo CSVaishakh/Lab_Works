@@ -1,40 +1,31 @@
-
 import java.util.Random;
-
 class EvenThread extends Thread {
-    private int num;
-
+    private int num;   
     public EvenThread(int num) {
         super("Even");
         this.num = num;
         start();
     }
-
     public void run() {
         System.out.println("Square of " + num + " = " + num * num);
     }
 }
-
 class OddThread extends Thread {
-    private int num;
-
+    private int num;  
     public OddThread(int num) {
         super("Odd");
         this.num = num;
         start();
     }
-
     public void run() {
         System.out.println("Cube of " + num + " = " + num * num * num);
     }
 }
-
 class RandomThread extends Thread {
     RandomThread() {
         super("Randomthread");
         start();
-    }
-
+    }  
     public void run() {
         Random r = new Random();
         try {
@@ -52,7 +43,6 @@ class RandomThread extends Thread {
         }
     }
 }
-
 public class MultiThreadedProgram {
     public static void main(String[] args) {
         new RandomThread();
