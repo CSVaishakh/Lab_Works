@@ -1,24 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-// Structure for a node in the binary tree
 struct node {
     int data;
-    struct node *left;  // Pointer to the left child
-    struct node *right; // Pointer to the right child
+    struct node *left;
+    struct node *right;
 };
-// Global pointer to the root of the tree
 struct node* root = NULL;
-// Function to read an integer from the user
-int read_item() {
+int read_item(){
     int item;
-    printf("Enter the value: ");
-    scanf("%d", &item);
+    printf("Enter the value ");
+    scanf("%d",&item);
     return item;
 }
-// Function to create a new node for the binary tree
 struct node* create_node(int item) {
-    struct node* new_node = (struct node *)malloc(sizeof(struct node));
+    struct node* new_node = (struct node*)malloc(sizeof(struct node));
     if (new_node == NULL) {
         printf("Memory allocation failed\n");
         exit(1);
@@ -28,69 +24,101 @@ struct node* create_node(int item) {
     new_node->right = NULL;
     return new_node;
 }
-// Function to insert a node into the binary tree 
-void insert() {
-    struct node* new_node = create_node(read_item());
+int getHeight(struct node* root) {
+    if (root == NULL) return 0;
+    int leftHeight = getHeight(root->left);
+    int rightHeight = getHeight(root->right);
+    return (leftHeight > rightHeight) ? leftHeight + 1 : rightHeight + 1;
+}
+bool isComplete(struct node* root, int level, int height) {
+    if (root == NULL) return (level >= height);
+    return isComplete(root->left, level + 1, height) && 
+           isComplete(root->right, level + 1, height);
+}
+bool insertAtLevel(struct node** node, int level, int value) {
+    if (*node == NULL && level == 0) {
+        *node = create_node(value);
+        printf("Inserted %d as the root node\n", value);
+        return true;
+    }
+    if (level == 0) return false;
+    if (*node == NULL) return false;   
+    if ((*node)->left == NULL && level == 1) {
+        (*node)->left = create_node(value);
+        printf("Inserted %d on the left of %d\n", value, (*node)->data);
+        return true;
+    }
+    if (insertAtLevel(&((*node)->left), level - 1, value)) {
+        return true;
+    }
+    if ((*node)->right == NULL && level == 1) {
+        (*node)->right = create_node(value);
+        printf("Inserted %d on the right of %d\n", value, (*node)->data);
+        return true;
+    }
+    return insertAtLevel(&((*node)->right), level - 1, value);
+}
+void insertLevelOrder(int value) {
     if (root == NULL) {
-        root = new_node;
-        printf("Node %d inserted as root\n", new_node->data);
+        root = create_node(value);
+        printf("Inserted %d as the root node\n", value);
         return;
     }
-    struct node* queue[100];
-    int front = 0, rear = 0;  
-    // Enqueue the root node
-    queue[rear++] = root;
-    // Level-order traversal to find the first available position
-    while (front < rear) {
-        struct node* current = queue[front++];  // Dequeue the front element
-        // Check if the left child is available
-        if (current->left == NULL) {
-            current->left = new_node;
-            printf("Node %d inserted on the left of %d\n", new_node->data, current->data);
-            break;
-        } else {
-            queue[rear++] = current->left;  // Enqueue the left child
-        }
-        // Check if the right child is available
-        if (current->right == NULL) {
-            current->right = new_node;
-            printf("Node %d inserted on the right of %d\n", new_node->data, current->data);
-            break;
-        } else {
-            queue[rear++] = current->right;  // Enqueue the right child
-        }
+    int height = getHeight(root);
+    bool inserted = false;
+    if (!isComplete(root, 0, height)) {
+        inserted = insertAtLevel(&root, height - 1, value);
+    }
+    if (!inserted) {
+        inserted = insertAtLevel(&root, height, value);
     }
 }
-// Function to perform in-order traversal of the binary tree
+void printLevel(struct node* root, int level) {
+    if (root == NULL) {
+        if (level == 0) printf("- ");
+        return;
+    }
+    if (level == 0) {
+        printf("%d ", root->data);
+        return;
+    }
+    printLevel(root->left, level - 1);
+    printLevel(root->right, level - 1);
+}
+void Display() {
+    if (root == NULL) return;
+    int h = getHeight(root);
+    for (int i = 0; i < h; i++) {
+        printLevel(root, i);
+        printf("\n");
+    }
+}
 void inorder(struct node* node) {
     if (node == NULL) return;
     inorder(node->left);
     printf("%d ", node->data);
     inorder(node->right);
 }
-// Function to perform pre-order traversal of the binary tree
 void preorder(struct node* node) {
     if (node == NULL) return;
     printf("%d ", node->data);
     preorder(node->left);
     preorder(node->right);
 }
-// Function to perform post-order traversal of the binary tree
 void postorder(struct node* node) {
     if (node == NULL) return;
     postorder(node->left);
     postorder(node->right);
     printf("%d ", node->data);
 }
-// Main function
 int main() {
-    int choice = 0;
-    while(true) {
-        printf("\n1: Insert\n2: In-order Traversal\n3: Pre-order Traversal\n4: Post-order Traversal\n5: Exit\nEnter your choice: ");
+    int choice;
+    while(1) {
+        printf("\n1: Insert\n2: In-order Traversal\n3: Pre-order Traversal\n4: Post-order Traversal\n5: Display\n6: Exit\nEnter your choice: ");
         scanf("%d", &choice);
-        switch (choice) {
+        switch(choice) {
             case 1:
-                insert();
+                insertLevelOrder(read_item());
                 break;
             case 2:
                 printf("In-order traversal: ");
@@ -108,9 +136,13 @@ int main() {
                 printf("\n");
                 break;
             case 5:
+                printf("Level-order display:\n");
+                Display();
+                break;
+            case 6:
                 printf("Exiting the program\n");
                 exit(0);
-            default: 
+            default:
                 printf("Invalid choice\n");
         }
     }
