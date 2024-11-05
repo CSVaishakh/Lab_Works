@@ -73,26 +73,6 @@ void insertLevelOrder(int value) {
         inserted = insertAtLevel(&root, height, value);
     }
 }
-void printLevel(struct node* root, int level) {
-    if (root == NULL) {
-        if (level == 0) printf("- ");
-        return;
-    }
-    if (level == 0) {
-        printf("%d ", root->data);
-        return;
-    }
-    printLevel(root->left, level - 1);
-    printLevel(root->right, level - 1);
-}
-void Display() {
-    if (root == NULL) return;
-    int h = getHeight(root);
-    for (int i = 0; i < h; i++) {
-        printLevel(root, i);
-        printf("\n");
-    }
-}
 void inorder(struct node* node) {
     if (node == NULL) return;
     inorder(node->left);
@@ -114,7 +94,7 @@ void postorder(struct node* node) {
 int main() {
     int choice;
     while(1) {
-        printf("\n1: Insert\n2: In-order Traversal\n3: Pre-order Traversal\n4: Post-order Traversal\n5: Display\n6: Exit\nEnter your choice: ");
+        printf("\n1: Insert\n2: In-order Traversal\n3: Pre-order Traversal\n4: Post-order Traversal\n5: Exit\nEnter your choice: ");
         scanf("%d", &choice);
         switch(choice) {
             case 1:
@@ -136,10 +116,6 @@ int main() {
                 printf("\n");
                 break;
             case 5:
-                printf("Level-order display:\n");
-                Display();
-                break;
-            case 6:
                 printf("Exiting the program\n");
                 exit(0);
             default:
