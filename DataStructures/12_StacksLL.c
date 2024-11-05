@@ -31,9 +31,10 @@ void display(){
     }
     struct node* ptr = top;
     while(ptr != NULL){//looping thought the stack
-        printf("%d ",ptr->data);//printing the  initial node
+        printf("%d -> ",ptr->data);//printing the  initial node
         ptr = ptr->link;//moving to the next node
     }
+    printf("NULL\n");
 }
 void push(){
     struct node* temp = create_node(read_item());//creating a new temporary node using the create_node function
@@ -59,7 +60,7 @@ void main() {
     int s = 0;
     while(true) {
         // Main menu for insertion, deletion, and display operations
-        printf("\n1: Insertion\n2: Deletion\n3: Display\n4: Exit\nChoice: ");
+        printf("\n1: Push\n2: Pop\n3: Display\n4: Exit\nChoice: ");
         scanf("%d", &s);
         switch (s) {
             case 1:
