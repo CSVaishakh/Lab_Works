@@ -9,7 +9,7 @@ public class TrafficLightWithButtons extends JFrame implements ActionListener {
 
     // Constructor to set up the frame and components
     public TrafficLightWithButtons() {
-        // Set up the window
+        // Set up the windowA
         setTitle("Traffic Light Simulator with Buttons");
         setSize(300, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
