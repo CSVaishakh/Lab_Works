@@ -13,7 +13,7 @@ bool isFull(){
 // function to check if the queue is empty
 bool isEmpty(){
     if(front == -1 && rear == -1){
-        return true;
+        return true;    
     }
     return false;
 }
