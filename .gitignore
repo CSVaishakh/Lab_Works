@@ -34,3 +34,6 @@ replay_pid*
 # OS-specific files
 .DS_Store
 Thumbs.db
+
+.venv
+.ipynb_checkpoints
