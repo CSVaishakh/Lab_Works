@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/vaishakh/Developemnt/Lab_Works/DataStructures",
-      "program": "/home/vaishakh/Developemnt/Lab_Works/DataStructures/out",
+      "cwd": "/home/vaishakh/Projects/Lab_Works/DataStructures",
+      "program": "/home/vaishakh/Projects/Lab_Works/DataStructures/out",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
