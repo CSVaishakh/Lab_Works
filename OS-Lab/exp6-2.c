@@ -11,7 +11,6 @@ int main() {
         scanf("%d", &bt[i]);
         p[i] = i;
     }
-    // Sorting for SJF
     for(i = 0; i < n; i++) {
         for(j = i + 1; j < n; j++) {
             if(bt[i] > bt[j]) {
@@ -20,18 +19,15 @@ int main() {
             }
         }
     }
-    // Turnaround Time
     for(i = 0; i < n; i++) {
         tat[i] = (i == 0) ? bt[i] : tat[i - 1] + bt[i];
         tot_tat += tat[i];
     }
-    // Waiting Time
     wt[0] = 0;
     for(i = 1; i < n; i++) {
         wt[i] = wt[i - 1] + bt[i - 1];
         tot_wt += wt[i];
     }
-    // Output
     printf("\nPROCESS\tBURST TIME\tTURNAROUND TIME\tWAITING TIME\n");
     for(i = 0; i < n; i++)printf("P[%d]\t\t%d\t\t%d\t\t%d\n", p[i] + 1, bt[i], tat[i], wt[i]);
     avg_tat = (float)tot_tat / n;
