@@ -362,3 +362,172 @@ int main() {
     printf(" P%d\n", safeseq[n - 1]);
     return 0;
 }
+
+
+
+PageRplacement - FIFO
+#include <stdio.h>
+int main() {
+    int i, j, k, f, pf = 0, count = 0, rs[25], m[10], n;
+    printf("\n Enter the number of page references : ");
+    scanf("%d", &n);
+    printf("\n Enter the page references : ");
+    for (i = 0; i < n; i++)
+        scanf("%d", &rs[i]);
+    printf("\n Enter number of frames : ");
+    scanf("%d", &f);
+    for (i = 0; i < f; i++)
+        m[i] = -1;
+    printf("\n FIFO Page Replacement \n");
+
+    for (i = 0; i < n; i++) {
+        for (k = 0; k < f; k++) {
+            if (m[k] == rs[i])
+                break;
+        }
+        if (k == f) {
+            m[count] = rs[i];
+            pf++;
+            count = (count + 1) % f;
+        }
+        for (j = 0; j < f; j++)
+            printf("\t%d", m[j]);
+        if (k == f)
+            printf("\tPF No. %d", pf);
+        printf("\n");
+    }
+    printf("\nTotal number of page faults using FIFO is %d \n", pf);
+    return 0;
+}
+
+LRU 
+#include <stdio.h>
+int main() {
+    int i, j, min, rs[25], m[10], count[10], n, f, pf = 0, next = 1;
+    printf("Enter the number of page references: ");
+    scanf("%d", &n);
+    printf("Enter the page references: ");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &rs[i]);
+    }
+    printf("Enter the number of frames: ");
+    scanf("%d", &f);
+    for (i = 0; i < f; i++) {
+        m[i] = -1;
+        count[i] = 0;
+    }
+    printf("\nLRU Page Replacement\n");
+    for (i = 0; i < n; i++) {
+        int found = 0;
+        for (j = 0; j < f; j++) {
+            if (m[j] == rs[i]) {
+                found = 1;
+                count[j] = next++;
+                break;
+            }
+        }
+        if (!found) {
+            if (i < f) {
+                m[i] = rs[i];
+                count[i] = next++;
+            } else {
+                min = 0;
+                for (j = 1; j < f; j++) {
+                    if (count[min] > count[j]) {
+                        min = j;
+                    }
+                }
+                m[min] = rs[i];
+                count[min] = next++;
+            }
+            pf++;
+        }
+        for (j = 0; j < f; j++) {
+            printf("%d\t", m[j]);
+        }
+        if (!found) {
+            printf("PF No. %d", pf);
+        }
+        printf("\n");
+    }
+    printf("\nTotal number of page faults using LRU: %d\n", pf);
+    return 0;
+}
+
+
+LFU 
+#include <stdio.h>
+
+int main() {
+    int rs[50], i, j, k, pageCount, frameCount, frames[20], freq[20], min, pageFaults = 0, found;
+
+    printf("Enter number of page references: ");
+    scanf("%d", &pageCount);
+
+    printf("Enter the page references: ");
+    for (i = 0; i < pageCount; i++) {
+        scanf("%d", &rs[i]);
+    }
+
+    printf("Enter the number of frames: ");
+    scanf("%d", &frameCount);
+
+    // Initialize frames and their frequencies
+    for (i = 0; i < frameCount; i++) {
+        frames[i] = -1;
+        freq[i] = 0;
+    }
+
+    printf("\nLFU Page Replacement:\n");
+
+    for (i = 0; i < pageCount; i++) {
+        found = 0;
+
+        // Check if the page is already in a frame
+        for (j = 0; j < frameCount; j++) {
+            if (frames[j] == rs[i]) {
+                freq[j]++;
+                found = 1;
+                break;
+            }
+        }
+
+        if (!found) {
+            // Look for an empty frame
+            for (j = 0; j < frameCount; j++) {
+                if (frames[j] == -1) {
+                    frames[j] = rs[i];
+                    freq[j] = 1;
+                    pageFaults++;
+                    found = 1;
+                    break;
+                }
+            }
+        }
+
+        if (!found) {
+            // Find the least frequently used frame
+            min = 0;
+            for (k = 1; k < frameCount; k++) {
+                if (freq[k] < freq[min]) {
+                    min = k;
+                }
+            }
+            frames[min] = rs[i];
+            freq[min] = 1;
+            pageFaults++;
+        }
+
+        // Display current frame status
+        printf("\n");
+        for (j = 0; j < frameCount; j++) {
+            printf("\t%d", frames[j]);
+        }
+        if (!found) {
+            printf("\tPF No. %d", pageFaults);
+        }
+    }
+
+    printf("\n\nTotal number of page faults: %d\n", pageFaults);
+    return 0;
+}
