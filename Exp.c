@@ -531,3 +531,38 @@ int main() {
     printf("\n\nTotal number of page faults: %d\n", pageFaults);
     return 0;
 }
+
+
+
+IPC 
+
+
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <stdio.h>
+
+int main() {
+    key_t key = ftok("shmfile", 65);
+    int shmid = shmget(key, 1024, 0666 | IPC_CREAT);
+    char *str = (char*) shmat(shmid, (void*)0, 0);
+    printf("Write Data: ");
+    fgets(str, 25, stdin);
+    printf("\nData written in memory: %s\n", str);
+    shmdt(str);
+    return 0;
+}
+
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <stdio.h>
+int main() {
+    key_t key = ftok("shmfile", 65);
+    int shmid = shmget(key, 1024, 0666 | IPC_CREAT);
+    char *str = (char*) shmat(shmid, (void*)0, 0);
+    printf("Data read from shared memory: %s\n", str);
+    shmdt(str);
+    shmctl(shmid, IPC_RMID, NULL);
+    return 0;
+}
+
+
