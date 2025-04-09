@@ -5,7 +5,6 @@ void main() {
     int i;
     printf("\nEnter the No. of Processes: \n");
     scanf("%d", &n);
-
     printf("Enter Burst time for each process:\n");
     for(i = 0; i < n; i++) {
         scanf("%d", &bt[i]);
