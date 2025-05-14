@@ -1,10 +1,10 @@
 #include <stdio.h>
 int main() {
-    int i, j, k, f, pf = 0, count = 0, rs[25], m[10], n;
+    int i, j, k, f, pf = 0, count = 0, rs[25], m[10], np;
     printf("\n Enter the number of page references : ");
-    scanf("%d", &n);
+    scanf("%d", &np);
     printf("\n Enter the page references : ");
-    for (i = 0; i < n; i++)
+    for (i = 0; i < np; i++)
         scanf("%d", &rs[i]);
     printf("\n Enter number of frames : ");
     scanf("%d", &f);
@@ -12,7 +12,7 @@ int main() {
         m[i] = -1;
     printf("\n FIFO Page Replacement \n");
 
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < np; i++) {
         for (k = 0; k < f; k++) {
             if (m[k] == rs[i])
                 break;
